@@ -26,6 +26,6 @@ async def on_message(message):
         await client.send_message(message.channel, 'Done sleeping')
      
     elif message.content.startwith('*addemoji'):
-        await client.create_custom_emoji(message.server, name= "name", image = "x.png")
+        await client.create_custom_emoji(message.server, "name", image = "x.png")
 
 client.run('Mzc1MTM4OTg5Mzk4Njg3NzQ2.DN9l9w.wOUvAFqhJHBJs8NOpHgaBsHFpzY')
