@@ -13,7 +13,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startwith('*addemoji'):
+    if message.content.startswith('*addemoji'):
         await client.create_custom_emoji(message.server, "name", image = "x.png")
         await client.send_message(message.channel, 'Emoji has been added!')
         
