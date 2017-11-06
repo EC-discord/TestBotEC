@@ -4,8 +4,7 @@ from discord.ext import commands
 
 bot = commands.Bot(
     command_prefix = "*",
-    description = "I'm a simple man. I see a command, I call it."
-)
+    description = "I'm a simple man. I see a command, I call it.")
 
 session = ClientSession(loop = bot.loop)
 
