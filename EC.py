@@ -1,33 +1,27 @@
 import discord
-import asyncio
+from aiohttp import ClientSession
+from discord.ext import commands
 
-client = discord.Client()
+bot = commands.Bot(
+    command_prefix = "*",
+    description = "I'm a simple man. I see a command, I call it."
+)
 
-@client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
+session = ClientSession(loop = bot.loop)
 
-@client.event
-async def on_message(message):
-    if message.content.startswith('*test'):
-        counter = 0
-        tmp = await client.send_message(message.channel, 'Calculating messages...')
-        async for log in client.logs_from(message.channel, limit=100):
-            if log.author == message.author:
-                counter += 1
-
-        await client.edit_message(tmp, 'You have {} messages.'.format(counter))
-    elif message.content.startswith('*sleep'):
-        await asyncio.sleep(5)
-        await client.send_message(message.channel, 'Done sleeping')
-   
-    elif message.content.startswith('*addemoji'):
-        with open("x.png", 'rb') as f:
-          image = f.read()
-        await client.create_custom_emoji(message.server, "name", image = image)
-        await client.send_message(message.channel, 'Emoji has been added!')
+@bot.command(pass_context = True)
+async def addemoji(ctx, emoji_name, emoji_link = ''):
+    msg: discord.Message = ctx.message
+    if msg.attachments:
+        image = msg.attachments[0]
+    elif emoji_link:
+        async with session.get(emoji_link) as resp:
+            image = await resp.read()
+    else:
+        await bot.say("No valid emoji provided.")
+        return
+    
+    created_emoji = await bot.create_custom_emoji(ctx.server, name = emoji_name, image = image)
+    await bot.say("Emoji {} created!".format(created_emoji))
         
-client.run('Mzc1MTM4OTg5Mzk4Njg3NzQ2.DN9l9w.wOUvAFqhJHBJs8NOpHgaBsHFpzY')
+bot.run('Mzc1MTM4OTg5Mzk4Njg3NzQ2.DN9l9w.wOUvAFqhJHBJs8NOpHgaBsHFpzY')
