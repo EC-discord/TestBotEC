@@ -26,7 +26,7 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
     created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
     await bot.say("Emoji {} created!".format(created_emoji))
       
-  def deleteemoji(ctx, emoji_name):
+async def deleteemoji(ctx, emoji_name):
     delete_custom_emoji(emoji_name)
 
     safe_token = "{}".format(tokens)
