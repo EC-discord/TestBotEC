@@ -25,10 +25,6 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
        
     created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
     await bot.say("Emoji {} created!".format(created_emoji))
-    
-if message.content.startswith('*serveremojis'):
-    get_all_emojis()
-
 
 safe_token = "{}".format(tokens)
 bot.run(safe_token)
