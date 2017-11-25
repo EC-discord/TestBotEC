@@ -22,7 +22,7 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
     else:
         await bot.say("No valid emoji provided.")
         return
-    def serveremojis():
+    def serveremojis:
         get_all_emojis()
         
     
