@@ -27,6 +27,6 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
     await bot.say("Emoji {} created!".format(created_emoji))
       
 
-    safe_token = "{}".format(tokens)
+safe_token = "{}".format(tokens)
 bot.run(safe_token)
 
