@@ -22,8 +22,8 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
     else:
         await bot.say("No valid emoji provided.")
         return
-    def serveremojis:
-        get_all_emojis()
+async def serveremojis:
+    get_all_emojis()
         
     
     created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
