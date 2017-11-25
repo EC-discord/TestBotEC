@@ -1,3 +1,4 @@
+import os
 import discord
 from aiohttp import ClientSession
 from discord.ext import commands
@@ -7,6 +8,8 @@ bot = commands.Bot(
     description = "I'm a simple man. I see a command, I call it.")
 
 session = ClientSession(loop = bot.loop)
+
+tokens = os.environ.get("TOKEN")
 
 @bot.command(pass_context = True)
 async def addemoji(ctx, emoji_name, emoji_link = ''):
@@ -22,5 +25,7 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
     
     created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
     await bot.say("Emoji {} created!".format(created_emoji))
-        
-bot.run('Mzc1MTM4OTg5Mzk4Njg3NzQ2.DN9l9w.wOUvAFqhJHBJs8NOpHgaBsHFpzY')
+
+safe_token = "{}".format(tokens)
+bot.run(safe_token)
+
