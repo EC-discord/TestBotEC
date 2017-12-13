@@ -12,7 +12,8 @@ session = ClientSession(loop = bot.loop)
 
 tokens = os.environ.get("TOKEN")
 
-@bot.command()
+
+@bot.command(Custom commands)
 async def woosh():
    await bot.say('Woosh Woosh')
 
