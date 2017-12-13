@@ -32,7 +32,7 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
     created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
     await bot.say("Emoji {} created!".format(created_emoji))
 
-@bot.commands    
+@bot.command()    
 async def editemoji(ctx, emoji_name):
     msg: discord.message = ctx.message
     edited_emoji = await bot.edit_custom_emoji(ctx.message.server, name = emoji_name)
