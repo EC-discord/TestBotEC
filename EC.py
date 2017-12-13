@@ -7,10 +7,6 @@ bot = commands.Bot(
     command_prefix = "*",
     description = "I'm a simple man. I see a command, I call it.")
 
-#@bot.event
-#async def on_ready():
-#    print ('Logged in as')
-#    print ('bot.user.name')
 
 session = ClientSession(loop = bot.loop)
 
@@ -21,7 +17,7 @@ async def woosh():
    await bot.say('Woosh Woosh')
 
 @bot.command(pass_context = True)
-""" Creates an emoji
+description = """ Creates an emoji
    Syntax *addemoji filename image.png """
 async def addemoji(ctx, emoji_name, emoji_link = ''):
     msg: discord.Message = ctx.message
