@@ -7,10 +7,10 @@ bot = commands.Bot(
     command_prefix = "*",
     description = "I'm a simple man. I see a command, I call it.")
 
-@bot.event
-async def on_ready():
-    print ('Logged in as')
-    print ('bot.user.name')
+#@bot.event
+#async def on_ready():
+#    print ('Logged in as')
+#    print ('bot.user.name')
 
 session = ClientSession(loop = bot.loop)
 
