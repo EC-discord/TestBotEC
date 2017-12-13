@@ -17,8 +17,8 @@ async def woosh():
    await bot.say('Woosh Woosh')
 
 @bot.command(pass_context = True)
-description = """ Creates an emoji
-   Syntax *addemoji filename image.png """
+'''Creates an emoji
+   Syntax *addemoji filename image.png'''
 async def addemoji(ctx, emoji_name, emoji_link = ''):
     msg: discord.Message = ctx.message
     if msg.attachments:
