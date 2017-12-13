@@ -35,7 +35,7 @@ async def editemoji(ctx, emoji_name):
     msg: discord.message = ctx.message
 
 @commands.command(aliases=['attach'])
-    async def linkify(self,ctx):
+async def linkify(self,ctx):
         link = ctx.message.attachments[0].url
         await ctx.send(link)
     
