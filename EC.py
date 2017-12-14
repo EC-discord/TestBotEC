@@ -23,7 +23,7 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
     if msg.attachments:
     await ctx.message.delete()
 
-@commands.command(pass_context=True, aliases=['source'])
+@bot.command(pass_context=True, aliases=['source'])
 async def sauce(self, ctx, *, txt: str = None):
     """Find source of image. Ex: [p]sauce http://i.imgur.com/NIq2U67.png"""
     if not txt:
