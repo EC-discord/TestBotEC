@@ -21,7 +21,7 @@ async def woosh():
 async def addemoji(ctx, emoji_name, emoji_link = ''):
     msg: discord.Message = ctx.message
     if msg.attachments:
-    await ctx.message.delete()
+      await ctx.message.delete()
 
 @bot.command(pass_context=True, aliases=['source'])
 async def sauce(self, ctx, *, txt: str = None):
