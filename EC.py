@@ -40,9 +40,9 @@ async def emoji(ctx, *, emoji: str):
         await ctx.message.delete()
         await ctx.send(file=discord.File(file, 'emote.png')
 
-@bot.command()
-async def woosh():
-    await bot.say('Woosh Woosh')
+#@bot.command()
+#async def woosh():
+#    await bot.say('Woosh Woosh')
 
 @bot.command(pass_context = True)
 async def addemoji(ctx, emoji_name, emoji_link = ''):
