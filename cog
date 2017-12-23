@@ -32,4 +32,4 @@ async def emoji(ctx, *, emoji: str):
         await ctx.send(file=discord.File(file, 'emote.png'))
         
 def setup(bot):
-    bot.add_cog(EC(bot))
+    bot.add_cog(Misc(bot))
