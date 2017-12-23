@@ -15,18 +15,9 @@ session = ClientSession(loop = bot.loop)
 tokens = os.environ.get("TOKEN")
 
 
-@bot.command()
-async def woosh():
-   await bot.say('Woosh Woosh')
 
-@bot.command(pass_context = True)
-async def addemoji(ctx, emoji_name, emoji_link = ''):
-    msg: discord.Message = ctx.message
-    if msg.attachments:
-      await ctx.message.delete()
-    
 @bot.command()
-async def _emoji(ctx, *, emoji: str):
+async def emoji(ctx, *, emoji: str):
     '''send emoji pic'''
     emoji = emoji.split(":")
     emoji_check = self.check_emojis(ctx.bot.emojis, emoji)
@@ -48,6 +39,17 @@ async def _emoji(ctx, *, emoji: str):
     with io.BytesIO(image) as file:
         await ctx.message.delete()
         await ctx.send(file=discord.File(file, 'emote.png')
+
+@bot.command()
+async def woosh():
+   await bot.say('Woosh Woosh')
+
+@bot.command(pass_context = True)
+async def addemoji(ctx, emoji_name, emoji_link = ''):
+    msg: discord.Message = ctx.message
+    if msg.attachments:
+      await ctx.message.delete()
+                      
 
                        
 safe_token = "{}".format(tokens)
