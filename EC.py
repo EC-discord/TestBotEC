@@ -49,6 +49,7 @@ async def _emoji(ctx, *, emoji: str):
         await ctx.message.delete()
         await ctx.send(file=discord.File(file, 'emote.png')
 
+                       
 safe_token = "{}".format(tokens)
 bot.run(safe_token)
 
