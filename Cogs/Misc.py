@@ -9,7 +9,7 @@ class Misc:
 
 @bot.command()
 async def emoji(ctx, *, emoji: str):
-    '''send emoji pic'''
+    """send emoji pic"""
     emoji = emoji.split(":")
     emoji_check = self.check_emojis(ctx.bot.emojis, emoji)
     if emoji_check[0]:
