@@ -26,20 +26,13 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
       await ctx.message.delete()
  
 def load_extensions(self, cogs = None, path = 'cogs.'):
-
-        for extension in cogs or self._extentions:
-
-            try:
-
-                self.load_extension('{0}{1}'.format(path, extension))
-
-                print('Loaded Extention: {}'.format(extension))
-
-            except Exception as e:
-
-                print('CannotLoad: {0}\n'
-
-                      '{type(e).__name__}: {1}'.format(extension, e))
+    for extension in cogs or self._extentions:
+        try:
+            self.load_extension('{0}{1}'.format(path, extension))
+            print('Loaded Extention: {}'.format(extension))
+        except Exception as e:
+            print('CannotLoad: {0}\n'
+            '{type(e).__name__}: {1}'.format(extension, e))
                       
 
                        
