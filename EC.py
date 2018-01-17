@@ -27,8 +27,6 @@ async def addemoji(ctx, emoji_name, emoji_link = ''):
  
 def load_extensions(self, cogs = None, path = 'cogs.'):
 
-        """Loading the Extentions"""
-
         for extension in cogs or self._extentions:
 
             try:
