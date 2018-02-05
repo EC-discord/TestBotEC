@@ -4,46 +4,98 @@ from aiohttp import ClientSession
 from discord.ext import commands
 import codecs
 import aiohttp
+from ext.context import CustomContext
+import psutil
+import re
+import json
+from collections import defaultdict
+import datetime
 
-bot = commands.Bot(
-    command_prefix = "*",
-    description = "Bot made by EC#1269")
+class JakeBot(commands.Bot):
+    '''
+    Made by EC#1269
+    '''
+    mentions_transforms = {
+          '@everyone': '@\u200beveryone',
+          '@here': '@\u200bhere'
+    }
+    mention_pattern = re.compile('|'.join(mentions_transforms.keys()))
+    
+    def __init__(self, **attrs):
+        super().__init__(command_prefix = self.get_pre)
+        self.session = aiohttp.ClientSession(loop = self.loop)
+        self._extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
+        self.remove_command('help')
+        self.process = psutil.Process()
+        self.commands_used = defaultdict(int)
+        self.load_extensions()
+        
+    def load_extensions(self, cogs = None, path = 'cogs.'):
+        '''Loading the Extentions ;)'''
+        for extension in cogs or self._extentions:
+            try:
+                self.load_extension('{0}{1}'.format(path, extension))
+                print('Loaded Extention: {}'.format(extension))
+            except Exception as e:
+                print('CannotLoad: {0}\n'
+                      '{type(e).__name__}: {1}'.format(extension, e))
+
+    @staticmethod
+    async def get_pre(bot, message):
+        '''GET THE PREFIX'''
+        with open('data/config.json') as f:
+            prefix = json.load(f).get('PREFIX')
+        return os.environ.get('PREFIX') or prefix or 'r. '
+
+    def restart(self):
+        os.exev(sys.executable, ['python'] + sys.argv)
 
 
-session = ClientSession(loop = bot.loop)
-
-tokens = os.environ.get("TOKEN")
-
-async def is_skid(ctx):
-   return ctx.author.id == 332040459335761921
-
-@bot.command()
-async def woosh():
-   await bot.say('Woosh Woosh') 
-
-@bot.command()
-@conmands.check(is_skid)
-async def us(self, ctx):
-    await self.user.edit(username = "Jake The Bot")
-    await ctx.send('Username Changed :D')
-
-@bot.command(pass_context = True)
-async def addemoji(ctx, emoji_name, emoji_link = ''):
-    msg: discord.Message = ctx.message
-    if msg.attachments:
-      await ctx.message.delete()
- 
-def load_extensions(self, cogs = None, path = 'cogs.'):
-    for extension in cogs or self._extentions:
+    @classmethod
+    def init(bot, token = None):
+        '''RUN THE BOT'''
+        Jakebot = bot()
+        with open('data/config.json') as f:
+            config = json.load(f)
+            if config["TOKEN"] == "your_token_here":
+                token = os.environ.get("TOKEN")
+                token = "{}".format(token)
+            else:
+                token = config["TOKEN"]
         try:
-            self.load_extension('{0}{1}'.format(path, extension))
-            print('Loaded Extention: {}'.format(extension))
+            Jakebot.run(token, bot = True, reconnect = True)
         except Exception as e:
-            print('CannotLoad: {0}\n'
-            '{type(e).__name__}: {1}'.format(extension, e))
-                      
+            print(e)
 
-                       
-safe_token = "{}".format(tokens)
-bot.run(safe_token)
+    async def on_connect(self):
+        print('-------------\n'+ 'Jake Logged in!')
+
+    async def on_ready(self):
+        '''SET THE UPTIME'''
+        self.uptime = datetime.datetime.utcnow()
+        server = str(+len(self.guilds))
+        await self.change_presence(game = discord.Game(name="#help | In "+server+" Guilds",type =0))
+
+    async def on_command(self, ctx):
+        cmd = ctx.command.qualified_name.replace(' ', '_')
+        self.commands_used[cmd] +=1
+
+    async def process_commands(self, message):
+        '''Utilize the CustomContext subclass'''
+        ctx = await self.get_context(message, cls = CustomContext)
+        if ctx.command is None:
+            return
+        await self.invoke(ctx)
+
+    async def on_message(self, message):
+        '''Ignore commands by self'''
+        if message.author.id == self.user.id:
+            return
+        await self.process_commands(message)
+
+    def get_server(self, id):
+        return discord.utils.get(self.guilds, id = id)
+
+if __name__ == '__main__':
+    JakeBot.init()                
 
