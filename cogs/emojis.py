@@ -20,4 +20,4 @@ class emojis:
           await ctx.message.delete()
           
 def setup(bot):
-bot.add_cog(emojis(bot))
+    bot.add_cog(emojis(bot))
