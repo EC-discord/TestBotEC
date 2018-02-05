@@ -8,12 +8,12 @@ class emojis:
         
         
     
-    @bot.command()
+    @commands.command()
     async def us(self, ctx):
         await self.user.edit(username = "Jake The Bot")
         await ctx.send('Username Changed :D')
 
-    @bot.command(pass_context = True)
+    @commands.command(pass_context = True)
     async def addemoji(ctx, emoji_name, emoji_link = ''):
         msg: discord.Message = ctx.message
         if msg.attachments:
