@@ -9,7 +9,7 @@ from collections import defaultdict
 import datetime
 import aiohttp
 
-class JakeBot(commands.Bot):
+class jakeBot(commands.Bot):
     '''
     Made by EC#1269
     '''
@@ -92,5 +92,5 @@ class JakeBot(commands.Bot):
         return discord.utils.get(self.guilds, id = id)
 
 if __name__ == '__main__':
-    JakeBot.init()                
+    jakeBot.init()                
 
