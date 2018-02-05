@@ -1,6 +1,7 @@
 import os
 import discord
 from discord.ext import commands
+from ext.context import CustomContext
 import psutil
 import re
 import json
