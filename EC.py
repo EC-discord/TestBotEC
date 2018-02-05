@@ -15,7 +15,7 @@ import datetime
 import aiohttp
 
 
-class AmiBot(commands.Bot):
+class jakeBot(commands.Bot):
     '''
     A Bot Made by ~  Liam#3273 and Quanta#5556
     '''
@@ -102,4 +102,4 @@ class AmiBot(commands.Bot):
 
 
 if __name__ == '__main__':
-    JakeBot.init()
+    jakeBot.init()
