@@ -1,5 +1,16 @@
-discord.py
+git+https://github.com/Rapptz/discord.py@rewrite
+lxml
+colorthief
+pyparsing
 requests
-pyfiglet
+sympy
+psutil
+bs4
+crasync
+cr-py
+urban-async
+moviepy
+spice_api
+cleverwrap
 
 
