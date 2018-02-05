@@ -177,8 +177,8 @@ class Information:
         if days:
             fmt = '{d}d ' + fmt
         uptime = fmt.format(d=days, h=hours, m=minutes, s=seconds)
-        embed.set_thumbnail(url = "https://media.discordapp.net/attachments/338630075710701578/398862345125756938/images_2.jpeg?width=290&height=411")
-        embed.add_field(name='Owner', value='Liam#3273\nID:300944772971888640', inline = False)
+        embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.jpg")
+        embed.add_field(name='Owner', value='EC#1269/nID:332040459335761921', inline = False)
         embed.add_field(name='About', value=about, inline = False)
         embed.add_field(name='Owner\'s Coding Sensei\'s ID', value='280271578850263040\nThank You', inline = False)
         embed.add_field(name='Uptime', value=uptime, inline = False)
