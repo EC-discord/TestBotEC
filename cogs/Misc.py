@@ -4,7 +4,7 @@ from discord.ext import commands
 
 class Misc: 
      def __init__(bot):
-          self.bot = bot
+         self.bot = bot
 
 
      @commands.command()
