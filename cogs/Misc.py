@@ -3,7 +3,7 @@ import asyncio
 from discord.ext import commands
 
 class Misc: 
-     def __init__(bot):
+     def __init__(self, bot):
          self.bot = bot
 
 
