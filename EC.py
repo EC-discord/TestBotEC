@@ -15,7 +15,7 @@ import datetime
 import aiohttp
 
 
-class jakeBot(commands.Bot):
+class AmiBot(commands.Bot):
     '''
     A Bot Made by ~  Liam#3273 and Quanta#5556
     '''
@@ -58,7 +58,7 @@ class jakeBot(commands.Bot):
     @classmethod
     def init(bot, token = None):
         '''RUN THE BOT'''
-        jakebot = bot()
+        amibot = bot()
         with open('data/config.json') as f:
             config = json.load(f)
             if config["TOKEN"] == "your_token_here":
@@ -72,13 +72,13 @@ class jakeBot(commands.Bot):
             print(e)
 
     async def on_connect(self):
-        print('-------------\n'+ 'Jake Logged in!')
+        print('-------------\n'+ 'Ami Logged in!')
 
     async def on_ready(self):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
-        await self.change_presence(game = discord.Game(name="#help | In "+server+" Guilds",type =0))
+        await self.change_presence(game = discord.Game(name="ophelp | In "+server+" Guilds",type =0))
 
     async def on_command(self, ctx):
         cmd = ctx.command.qualified_name.replace(' ', '_')
@@ -102,4 +102,4 @@ class jakeBot(commands.Bot):
 
 
 if __name__ == '__main__':
-    jakeBot.init()
+    AmiBot.init()
