@@ -9,21 +9,17 @@ bot = commands.Bot(
     command_prefix = "*",
     description = "Bot made by EC#1269")
 
-async def is_skid(ctx):
-   return ctx.author.id == 332040459335761921
-
 
 session = ClientSession(loop = bot.loop)
 
 tokens = os.environ.get("TOKEN")
 
+async def is_skid(ctx):
+   return ctx.author.id == 332040459335761921
 
 @bot.command()
 async def woosh():
-   await bot.say('Woosh Woosh')
-
-async def is_skid(ctx):
-    return ctx.author.id == Your id 
+   await bot.say('Woosh Woosh') 
 
 @bot.command()
 @conmands.check(is_skid)
