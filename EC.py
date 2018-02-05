@@ -34,9 +34,6 @@ class JakeBot(commands.Bot):
             try:
                 self.load_extension('{0}{1}'.format(path, extension))
                 print('Loaded Extention: {}'.format(extension))
-            except Exception as e:
-                print('CannotLoad: {0}\n'
-                      '{type(e).__name__}: {1}'.format(extension, e))
 
     @staticmethod
     async def get_pre(bot, message):
