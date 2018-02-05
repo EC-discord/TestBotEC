@@ -40,7 +40,7 @@ class Utility:
         '''
         equivalent to a restart if you are hosting the bot on heroku.
         '''
-        await ctx.send('`Jake Logging out... (' O '   )`')
+        await ctx.send('`Jake Logging out...(' - '   )`')
         await self.bot.logout()
       
 
