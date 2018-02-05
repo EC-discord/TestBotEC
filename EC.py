@@ -4,7 +4,6 @@ from aiohttp import ClientSession
 from discord.ext import commands
 import codecs
 import aiohttp
-from ext.context import CustomContext
 import psutil
 import re
 import json
