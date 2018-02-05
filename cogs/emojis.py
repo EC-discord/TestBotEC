@@ -2,7 +2,7 @@ import discord
 import asyncio
 from discord.ext import commands
 
-class Emojis:
+class emojis:
     def __init__(self, bot):
         self.bot = bot
         
@@ -20,4 +20,4 @@ class Emojis:
           await ctx.message.delete()
           
 def setup(bot):
-bot.add_cog(Emojis(bot))
+bot.add_cog(emojis(bot))
