@@ -35,12 +35,12 @@ class JakeBot(commands.Bot):
                 self.load_extension('{0}{1}'.format(path, extension))
                 print('Loaded Extention: {}'.format(extension))
 
-     @staticmethod
-     async def get_pre(bot, message):
-         '''GET THE PREFIX'''
-         with open('data/config.json') as f:
-             prefix = json.load(f).get('PREFIX')
-         return os.environ.get('PREFIX') or prefix or 'r. '
+    @staticmethod
+    async def get_pre(bot, message):
+        '''GET THE PREFIX'''
+        with open('data/config.json') as f:
+            prefix = json.load(f).get('PREFIX')
+        return os.environ.get('PREFIX') or prefix or 'r. '
 
      def restart(self):
          os.exev(sys.executable, ['python'] + sys.argv)
