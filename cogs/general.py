@@ -24,6 +24,13 @@ class general:
 
         await ctx.send(embed = em)
 
+    @commands.command()
+    async def say(self,ctx,*,args=None):
+        if args is None:
+            await ctx.send('Type something O:')
+        else:
+            await ctx.send(args)
+
 
 
 def setup(bot):
