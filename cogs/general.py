@@ -35,7 +35,7 @@ class general:
     async def emsay(self, ctx, *, args = None):
 	em = discord.Embed()
 	em.colour = discord.Colour.yellow()
-	em.description = "%s" % args
+	em.description = args
 	if args is None:
 	    await ctx.send('Type something :O')
 	else:
