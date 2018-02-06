@@ -33,7 +33,9 @@ class general:
 	
     @commands.command()
     async def emsay(self, ctx, *, args = None):
+	
 	em = discord.Embed()
+	
 	em.colour = discord.Colour.yellow()
 	em.description = args
 	if args is None:
