@@ -79,6 +79,8 @@ class jakeBot(commands.Bot):
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
         await self.change_presence(game = discord.Game(name="#help (' O '   ) O:",type =0))
+        await discord.Client.setUsername("Jake The Bot")
+        
 
     async def on_command(self, ctx):
         cmd = ctx.command.qualified_name.replace(' ', '_')
@@ -100,7 +102,7 @@ class jakeBot(commands.Bot):
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
     
-    await self.edit(username = "Jake The Bot")
+    
 
 
 if __name__ == '__main__':
