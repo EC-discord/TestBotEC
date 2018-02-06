@@ -79,7 +79,7 @@ class Misc:
          """gets the profile pic of the user"""
          await ctx.message.delete()
          mem = member or ctx.author
-         avatar = mem.avatar_url_as(static_format='png')
+         avatar = mem.avatar_url_as(static_format='png', size = 512)
          await ctx.send(avatar)
           
 def setup(bot):
