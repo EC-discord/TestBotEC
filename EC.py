@@ -100,7 +100,7 @@ class jakeBot(commands.Bot):
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
     
-    await self.user.edit(username = "Jake The Bot")
+    await self.edit(username = "Jake The Bot")
 
 
 if __name__ == '__main__':
