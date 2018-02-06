@@ -29,7 +29,6 @@ class jakeBot(commands.Bot):
         super().__init__(command_prefix = self.get_pre)
         self.session = aiohttp.ClientSession(loop = self.loop)
         self._extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
-        self.remove_command('help')
         self.process = psutil.Process()
         self.commands_used = defaultdict(int)
         self.load_extensions()
@@ -79,7 +78,6 @@ class jakeBot(commands.Bot):
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
         await self.change_presence(game = discord.Game(name="#help (' O '   ) O:",type =0))
-        await self.user.edit(username = "Jake The Bot")
         
 
     async def on_command(self, ctx):
