@@ -1,7 +1,7 @@
 
 '''
 Originally Base-Derived
-Owner - Liam#3273, Quanta#5556
+Owner - EC#1269, Liam#3273, Quanta#5556
 '''
 import os
 import discord
@@ -15,9 +15,9 @@ import datetime
 import aiohttp
 
 
-class AmiBot(commands.Bot):
+class jakeBot(commands.Bot):
     '''
-    A Bot Made by ~  Liam#3273 and Quanta#5556
+    A Bot Made by ~ EC#1269 Liam#3273 and Quanta#5556
     '''
     mentions_transforms = {
           '@everyone': '@\u200beveryone',
@@ -58,27 +58,27 @@ class AmiBot(commands.Bot):
     @classmethod
     def init(bot, token = None):
         '''RUN THE BOT'''
-        amibot = bot()
+        jakebot = bot()
         with open('data/config.json') as f:
             config = json.load(f)
             if config["TOKEN"] == "your_token_here":
                 token = os.environ.get("TOKEN")
-                token = "{}".format(token)
+                token = str(token)
             else:
                 token = config["TOKEN"]
         try:
-            amibot.run(token, bot = True, reconnect = True)
+            jakebot.run(token, bot = True, reconnect = True)
         except Exception as e:
             print(e)
 
     async def on_connect(self):
-        print('-------------\n'+ 'Ami Logged in!')
+        print('-------------\n'+ 'Jake Logged in!')
 
     async def on_ready(self):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
-        await self.change_presence(game = discord.Game(name="ophelp | In "+server+" Guilds",type =0))
+        await self.change_presence(game = discord.Game(name="#help | In "+server+" Guilds O:",type =0))
 
     async def on_command(self, ctx):
         cmd = ctx.command.qualified_name.replace(' ', '_')
@@ -102,4 +102,4 @@ class AmiBot(commands.Bot):
 
 
 if __name__ == '__main__':
-    AmiBot.init()
+    jakeBot.init()
