@@ -36,7 +36,7 @@ class jakeBot(commands.Bot):
 
     def load_extensions(self, cogs=None, path='cogs.'):
         '''Loads the default set of extensions or a seperate one if given'''
-        for extension in cogs or self.extensions:
+        for extension in cogs or self._extensions:
             try:
                 self.load_extension(f'{path}{extension}')
                 print(f'Loaded extension: {extension}')
