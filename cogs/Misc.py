@@ -5,7 +5,11 @@ from discord.ext import commands
 class Misc: 
      def __init__(self, bot):
          self.bot = bot
-
+     
+     @commands.command()
+     async def getchanid(self, ctx):
+         lel = ctx.channel.id
+         await ctx.send(lel)
 
      @commands.command()
      async def emoji(ctx, *, emoji: str):
