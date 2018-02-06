@@ -25,11 +25,21 @@ class general:
         await ctx.send(embed = em)
 
     @commands.command()
-    async def say(self,ctx,*,args=None):
+    async def say(self, ctx, *, args=None):
         if args is None:
             await ctx.send('Type something O:')
         else:
             await ctx.send(args)
+	
+    @commands.command()
+    async def emsay(self, ctx, *, args = None):
+	em = discord.Embed()
+	em.colour = discord.Colour.yellow()
+	em.description = "%s" % args
+	if args is None:
+	    await ctx.send('Type something :O')
+	else:
+	    await ctx.send(embed = em)
 
 
 
