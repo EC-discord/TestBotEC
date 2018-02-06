@@ -19,7 +19,6 @@ import re
 import io
 import os
 import random
-from mtranslate import translate
 from io import BytesIO
 import string
 
