@@ -20,7 +20,7 @@ class general:
         em.colour = discord.Colour.green()
         em.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.jpg")
         em.add_field(name = "Jake The Bot", value = """**Support Server** \nServer Link: https://discord.gg/bmeBBdd """, inline = True)
-        em.set_footer(text = "Jake",icon_url = self.bot.user.avatar_url_as(static_formag='png'))
+        em.set_footer(text = "Jake",icon_url = self.bot.user.avatar_url_as(static_format='png'))
 
         await ctx.send(embed = em)
 
