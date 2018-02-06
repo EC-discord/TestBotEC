@@ -6,12 +6,6 @@ class emojis:
     def __init__(self, bot):
         self.bot = bot
         
-        
-    
-    @commands.command()
-    async def us(self, ctx):
-        await self.user.edit(username = "Jake The Bot")
-        await ctx.send('Username Changed :D')
 
     @commands.command(pass_context = True)
     async def addemoji(ctx, emoji_name, emoji_link = ''):
