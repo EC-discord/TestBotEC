@@ -78,7 +78,7 @@ class jakeBot(commands.Bot):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
-        await self.change_presence(game = discord.Game(name="#help | In "+server+" Guilds O:",type =0))
+        await self.change_presence(game = discord.Game(name="#help (' O '   ) O:",type =0))
 
     async def on_command(self, ctx):
         cmd = ctx.command.qualified_name.replace(' ', '_')
@@ -100,9 +100,7 @@ class jakeBot(commands.Bot):
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
     
-    async def us(self, ctx):
-       await self.user.edit(username = "Jake The Bot")
-       await ctx.send('Username Changed :D')
+    await self.user.edit(username = "Jake The Bot")
 
 
 if __name__ == '__main__':
