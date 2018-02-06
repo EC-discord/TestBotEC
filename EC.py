@@ -99,6 +99,10 @@ class jakeBot(commands.Bot):
 
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
+    
+    async def us(self, ctx):
+       await self.user.edit(username = "Jake The Bot")
+       await ctx.send('Username Changed :D')
 
 
 if __name__ == '__main__':
