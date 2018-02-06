@@ -16,31 +16,6 @@ class Information:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['av'])
-    async def picsu(self, ctx, *, member : discord.Member=None):
-        '''Returns someone's avatar url'''
-        member = member or ctx.author
-        av = member.avatar_url
-        if ".gif" in av:
-            av += "&f=.gif"
-        color = await ctx.get_dominant_color(av)
-        em = discord.Embed(url=av, color=color)
-        em.set_author(name=str(member), icon_url=av)
-        em.set_image(url=av)
-        try:
-            await ctx.send(embed=em)
-        except discord.HTTPException:
-            em_list = await embedtobox.etb(em)
-            for page in em_list:
-                await ctx.send(page)
-            try:
-                async with ctx.session.get(av) as resp:
-                    image = await resp.read()
-                with io.BytesIO(image) as file:
-                    await ctx.send(file=discord.File(file, 'avatar.png'))
-            except discord.HTTPException:
-                await ctx.send(av)
-
     @commands.command(aliases=['sicon'], no_pm=True)
     async def serverlogo(self, ctx):
         '''Return the server's icon url.'''
