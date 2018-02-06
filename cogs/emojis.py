@@ -9,7 +9,7 @@ class emojis:
         
 
     @commands.command(pass_context = True)
-    async def addemoji(ctx, emoji_name, emoji_link = ''):
+    async def addemoji(ctx, message, emoji_name, emoji_link = ''):
         msg: discord.Message = ctx.message
         if msg.attachments:
             image = msg.attachments[0]
@@ -17,11 +17,11 @@ class emojis:
             async with session.get(emoji_link) as resp:
                 image = await resp.read()
         else:
-            await bot.say("No valid emoji provided.")
+            await ctx.send("No valid emoji provided.")
             return
     
         created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
-        await bot.say("Emoji {} created!".format(created_emoji))
+        await ctx.send("Emoji {} created!".format(created_emoji))
           
 def setup(bot):
     bot.add_cog(emojis(bot))
