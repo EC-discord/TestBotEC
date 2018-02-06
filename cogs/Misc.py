@@ -76,11 +76,11 @@ class Misc:
         
      @commands.command(alisases = ["avatar"])
      async def picsu(self, ctx, *, member : discord.Member = None):
-        """gets the profile pic of the user"""
-        await ctx.message.delete()
-        mem = member or ctx.author
-        avatar = mem.avatar_url_as(static_format='png')
-        await ctx.send(avatar)
+         """gets the profile pic of the user"""
+         await ctx.message.delete()
+         mem = member or ctx.author
+         avatar = mem.avatar_url_as(static_format='png')
+         await ctx.send(avatar)
           
 def setup(bot):
     bot.add_cog(Misc(bot))
