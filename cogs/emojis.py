@@ -1,7 +1,7 @@
 import discord
 import asyncio
 from discord.ext import commands
-import aiohttp
+from aiohttp import ClientSession
 
 class emojis:
     def __init__(self, bot):
@@ -9,7 +9,7 @@ class emojis:
         
 
     @commands.command(pass_context = True)
-    async def addemoji(ctx, message, emoji_name, emoji_link = ''):
+    async def addemoji(ctx, emoji_name, emoji_link = ''):
         msg: discord.Message = ctx.message
         if msg.attachments:
             image = msg.attachments[0]
