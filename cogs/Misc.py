@@ -74,7 +74,7 @@ class Misc:
              await ctx.message.delete()
              await ctx.send(file=discord.File(file, 'emote.png'))
         
-     @commands.command(alisases = ["avatar"])
+     @commands.command()
      async def picsu(self, ctx, *, member : discord.Member = None):
          """gets the profile pic of the user"""
          await ctx.message.delete()
