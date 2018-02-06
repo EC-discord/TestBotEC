@@ -33,16 +33,16 @@ class jakeBot(commands.Bot):
         self.process = psutil.Process()
         self.commands_used = defaultdict(int)
         self.load_extensions()
-
-    def load_extensions(self, cogs=None, path='cogs.'):
-        '''Loads the default set of extensions or a seperate one if given'''
-        for extension in cogs or self._extensions:
+   
+    def load_extensions(self, cogs = None, path = 'cogs.'):
+        '''Loading the Extentions ;)'''
+        for extension in cogs or self._extentions:
             try:
-                self.load_extension(f'{path}{extension}')
-                print(f'Loaded extension: {extension}')
+                self.load_extension('{0}{1}'.format(path, extension))
+                print('Loaded Extention: {}'.format(extension))
             except Exception as e:
-                print(f'LoadError: {extension}\n'
-                      f'{type(e).__name__}: {e}')
+                print('CannotLoad: {0}\n'
+                      '{type(e).__name__}: {1}'.format(extension, e))
 
     @staticmethod
     async def get_pre(bot, message):
