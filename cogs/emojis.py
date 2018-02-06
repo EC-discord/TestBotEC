@@ -20,7 +20,7 @@ class emojis:
             await bot.say("No valid emoji provided.")
             return
     
-        created_emoji = await bot.create_custom_emoji(ctx.server, name = emoji_name, image = image)
+        created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
         await bot.say("Emoji {} created!".format(created_emoji))
           
 def setup(bot):
