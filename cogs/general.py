@@ -4,6 +4,7 @@ import json
 import random
 from discord.ext import commands
 from cleverwrap import CleverWrap
+import asyncio
 
 
 class general:
