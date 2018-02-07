@@ -9,7 +9,7 @@ class Anim:
      @commands.command()
      async def cathi(self, ctx):
          for i in range(1, 8, 1):
-             msg = await ctx.send(""".　　　＿＿_＿＿
+             msg = await ctx.send(content=""".　　　＿＿_＿＿
 　　／　／　  ／|"
 　　|￣￣￣￣|　|
 　　|　　　　|／
