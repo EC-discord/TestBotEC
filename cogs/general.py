@@ -29,15 +29,15 @@ class general:
         else:
             await ctx.send(args)
 	
-    """@commands.command()
+    @commands.command()
     async def emsay(self, ctx, *, args = None):
 	
-	em = discord.Embed()
+	em = discord.Embed(0xffd500)
 	em.description = args
 	if args is None:
 	    await ctx.send('Type something :O')
 	else:
-	    await ctx.send(embed = em)"""
+	    await ctx.send(embed = em)
 
 
 
