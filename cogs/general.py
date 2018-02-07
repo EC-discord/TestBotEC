@@ -14,10 +14,8 @@ class general:
     async def invite(self,ctx):
         '''invite the bot :D'''
 
-        em = discord.Embed()
-
+        em = discord.Embed(0xffee00)
         em = discord.Embed(title = "Click Here To Invite", url = "https://discordapp.com/oauth2/authorize?client_id=375138989398687746&scope=bot&permissions=305196166")
-        em.colour = discord.Colour.Yellow()
         em.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.jpg")
         em.add_field(name = "Jake The Bot", value = """**Support Server** \nServer Link: https://discord.gg/bmeBBdd """, inline = True)
         em.set_footer(text = "Jake",icon_url = self.bot.user.avatar_url_as(static_format='png'))
@@ -31,12 +29,10 @@ class general:
         else:
             await ctx.send(args)
 	
-    """"@commands.command()
+    """@commands.command()
     async def emsay(self, ctx, *, args = None):
 	
 	em = discord.Embed()
-	
-	em.colour = discord.Colour.yellow()
 	em.description = args
 	if args is None:
 	    await ctx.send('Type something :O')
