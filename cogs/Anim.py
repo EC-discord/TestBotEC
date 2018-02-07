@@ -21,20 +21,20 @@ class Anim:
 　　|　　　　|／
 　　￣￣￣￣""")
          await asyncio.sleep(1.3)
-             for i in range(1 ,6 , 1):
-                 await msg.edit(content="""ຸ 　　　＿＿_＿＿
+         for i in range(1 ,6 , 1):
+             await msg.edit(content="""ຸ 　　　＿＿_＿＿
 　　／　／　  ／|"
 　　|￣￣￣￣|　|
 　　|　　　　|／
 　　￣￣￣￣""")
-                 await asyncio.sleep(1.3)
-                 await msg.edit(content="""ຸ 　　　Hi...♡
+             await asyncio.sleep(1.3)
+             await msg.edit(content="""ຸ 　　　Hi...♡
  　   　 ∧＿∧＿_
 　　／(´･ω･`)  ／＼
 　／|￣￣￣￣|＼／
 　　|　　　　|／
 　　￣￣￣￣""")
-                 await asyncio.sleep(1.3)
+             await asyncio.sleep(1.3)
              
      
      @commands.command()
