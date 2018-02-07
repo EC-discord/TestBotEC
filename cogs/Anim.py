@@ -8,8 +8,21 @@ class Anim:
      
      @commands.command()
      async def cathi(self, ctx):
-         for i in range(1, 8, 1):
-             msg = await ctx.send("""ຸ 　　　＿＿_＿＿
+         msg = await ctx.send("""ຸ 　　　＿＿_＿＿
+　　／　／　  ／|"
+　　|￣￣￣￣|　|
+　　|　　　　|／
+　　￣￣￣￣""")
+         await asyncio.sleep(1.3)
+         await msg.edit(content="""ຸ 　　　Hi...♡
+ 　   　 ∧＿∧＿_
+　　／(´･ω･`)  ／＼
+　／|￣￣￣￣|＼／
+　　|　　　　|／
+　　￣￣￣￣""")
+         await asyncio.sleep(1.3)
+             for i in range(1 ,6 , 1):
+             await msg.edit(content="""ຸ 　　　＿＿_＿＿
 　　／　／　  ／|"
 　　|￣￣￣￣|　|
 　　|　　　　|／
@@ -21,7 +34,8 @@ class Anim:
 　／|￣￣￣￣|＼／
 　　|　　　　|／
 　　￣￣￣￣""")
-             await asyncio.sleep(1.5)
+             await asyncio.sleep(1.3)
+             
      
      @commands.command()
      async def catsu(self, ctx):
