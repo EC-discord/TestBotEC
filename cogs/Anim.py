@@ -9,13 +9,13 @@ class Anim:
      @commands.command()
      async def cathi(self, ctx):
          for i in range(1, 8, 1):
-             msg = await ctx.send(content=""".　　　＿＿_＿＿
+             msg = await ctx.send(content="""ຸ 　　　＿＿_＿＿
 　　／　／　  ／|"
 　　|￣￣￣￣|　|
 　　|　　　　|／
 　　￣￣￣￣""")
              await asyncio.sleep(1.3)
-             await msg.edit(content="""　　　Hi...♡
+             await msg.edit(content="""ຸ 　　　Hi...♡
  　   　 ∧＿∧＿_
 　　／(´･ω･`)  ／＼
 　／|￣￣￣￣|＼／
