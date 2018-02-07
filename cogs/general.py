@@ -30,11 +30,11 @@ class general:
     @commands.command()
     async def emsay(self, ctx, *, args = None):
         if args is None:
-	    await ctx.send("Type something (' - '   )")
+            await ctx.send("Type something (' - '   )")
         else:
-	    em = discord.Embed(color=0xffd500)
-	    em.description = args
-	    await ctx.send(embed = em)
+	        em = discord.Embed(color=0xffd500)
+	        em.description = args
+	        await ctx.send(embed = em)
 
 
 
