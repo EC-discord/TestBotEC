@@ -15,7 +15,7 @@ class Anim:
 　　|　　　　|／
 　　￣￣￣￣""")
              await asyncio.sleep(1.3)
-             await msg.edit("""　　　Hi...♡
+             await msg.edit(content="""　　　Hi...♡
  　   　 ∧＿∧＿_
 　　／(´･ω･`)  ／＼
 　／|￣￣￣￣|＼／
