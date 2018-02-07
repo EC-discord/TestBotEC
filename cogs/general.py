@@ -29,7 +29,7 @@ class general:
         else:
             await ctx.send(args)
 	
-    @commands.command()
+    '''@commands.command()
     async def emsay(self, ctx, *, args = None):
 	
 	em = discord.Embed(0xffd500)
@@ -37,7 +37,7 @@ class general:
 	if args is None:
 	    await ctx.send('Type something :O')
 	else:
-	    await ctx.send(embed = em)
+	    await ctx.send(embed = em)'''
 
 
 
