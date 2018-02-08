@@ -10,6 +10,7 @@ class emojis:
 
     @commands.command()
     async def addemoji(self, ctx, emoji_name, emoji_link = ''):
+        session = ClientSession
         msg: discord.Message = ctx.message
         if msg.attachments:
             image = msg.attachments[0]
