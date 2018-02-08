@@ -79,8 +79,23 @@ class Misc:
          """gets the profile pic of the user"""
          await ctx.message.delete()
          mem = member or ctx.author
-         avatar = mem.avatar_url_as(static_format='png', size = 512)
+         avatar = mem.avatar_url_as(static_format='png', size = 256)
          await ctx.send(avatar)
+     
+          @commands.command()
+     async def plt(self, ctx, *, args:str = None):
+        """PigLatin Translator"""
+        word = args
+        py = "ay"
+        first_word = word[0]
+        if args is None:
+            await ctx.send("Type something O:")
+        else:
+            new_word = word[1:len(word)]
+            new_word = new_word + first_word + py
+            em = discord.Embed(color = 0xffd500)
+            em.description = new_word
+            await ctx.send(embed = em)
           
 def setup(bot):
     bot.add_cog(Misc(bot))
