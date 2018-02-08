@@ -183,7 +183,7 @@ class Utility:
             if characters > 1000:
                 destination = ctx.message.author
 
-        color = await ctx.get_dominant_color(ctx.author.avatar_url_as('png'))
+        color = await ctx.get_dominant_color(ctx.author.avatar_url)
 
         for embed in pages:
             embed.color = color
