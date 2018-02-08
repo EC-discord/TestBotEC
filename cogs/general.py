@@ -36,8 +36,8 @@ class general:
 	        em.description = args
 	        await ctx.send(embed = em)
      
-     @commands.command()
-     async def getems(self, ctx):
+    @commands.command()
+    async def getems(self, ctx):
          l = []
          for e in ctx.guild.emojis:
              name = e.name+ " " + "{}".format(e)
