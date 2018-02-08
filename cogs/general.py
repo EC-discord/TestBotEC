@@ -35,6 +35,15 @@ class general:
 	        em = discord.Embed(color=0xffd500)
 	        em.description = args
 	        await ctx.send(embed = em)
+     
+     @commands.command()
+     async def getems(self, ctx):
+         l = []
+         for e in ctx.guild.emojis:
+             name = e.name+ " " + "{}".format(e)
+             l.append (name)
+         emo = ' '.join(l)
+         await ctx.send(emo)
 
 
 
