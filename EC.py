@@ -77,7 +77,7 @@ class jakeBot(commands.Bot):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
-        await self.change_presence(game = discord.Game(name="#help (' O '   ) O:",type =0))
+        await self.change_presence(game = discord.Game(name="$help (' O '   ) O:",type =0))
         
 
     async def on_command(self, ctx):
