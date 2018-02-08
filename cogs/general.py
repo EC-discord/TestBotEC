@@ -10,6 +10,11 @@ import asyncio
 class general:
     def __init__(self, bot):
         self.bot = bot
+	
+	@commands.command()
+    async def clean(self, ctx, limit : int=10000):
+        '''Clean a number of the bots messages'''
+        await ctx.purge(limit=limit+1, check=lambda m: m.author == ctx.author)
         
     @commands.command()
     async def invite(self,ctx):
