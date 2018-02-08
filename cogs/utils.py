@@ -186,7 +186,7 @@ class Utility:
         color = await ctx.get_dominant_color(ctx.author.avatar_url)
 
         for embed in pages:
-            embed.color = color
+            embed = discord.Embed(color=0xffd500)
             try:
                 await ctx.send(embed=embed)
             except discord.HTTPException:
