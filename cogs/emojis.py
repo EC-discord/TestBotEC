@@ -8,8 +8,8 @@ class emojis:
         self.bot = bot
         
 
-    @commands.command(pass_context = True)
-    async def addemoji(ctx, emoji_name, emoji_link = ''):
+    @commands.command()
+    async def addemoji(self, ctx, emoji_name, emoji_link = ''):
         msg: discord.Message = ctx.message
         if msg.attachments:
             image = msg.attachments[0]
@@ -20,7 +20,7 @@ class emojis:
             await ctx.send("No valid emoji provided.")
             return
     
-        created_emoji = await bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
+        created_emoji = await self.bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
         await ctx.send("Emoji {} created!".format(created_emoji))
           
 def setup(bot):
