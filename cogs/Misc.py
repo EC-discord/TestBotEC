@@ -82,7 +82,7 @@ class Misc:
          avatar = mem.avatar_url_as(static_format='png', size = 256)
          await ctx.send(avatar)
      
-          @commands.command()
+     @commands.command()
      async def plt(self, ctx, *, args:str = None):
         """PigLatin Translator"""
         word = args
