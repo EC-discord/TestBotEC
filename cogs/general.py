@@ -11,10 +11,10 @@ class general:
     def __init__(self, bot):
         self.bot = bot
 	
-    @commands.command()
+   ''' @commands.command()
     async def clean(self, ctx, limit : int=10000, member : discord.Member):
         '''Clean a number of the bots messages'''
-        await ctx.purge(limit=limit+1)
+        await ctx.purge(limit=limit+1)'''
         
     @commands.command()
     async def invite(self,ctx):
