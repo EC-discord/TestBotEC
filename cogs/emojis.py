@@ -21,7 +21,7 @@ class emojis:
             await ctx.send("No valid emoji provided.")
             return
     
-        created_emoji = await self.bot.create_custom_emoji(ctx.message.server, name = emoji_name, image = image)
+        created_emoji = await ctx.guild.create_custom_emoji(name = emoji_name, image = image)
         await ctx.send("Emoji {} created!".format(created_emoji))
           
 def setup(bot):
