@@ -59,10 +59,14 @@ class Anim:
      
      @commands.command()
      async def dance(self, ctx):
+         msg = await ctx.send(content="\\\(' - '   )\\")
+         await asyncio.sleep(0.7)
+         await msg.edit(content="/(   ' - ')/")
+         await asyncio.sleep(0.7)
          for i in range(1, 10, 1):
-             await ctx.message.edit(content="\\\(' - '   )\\")
+             await msg.edit(content="\\\(' - '   )\\")
              await asyncio.sleep(0.7)
-             await ctx.message.edit(content="/(   ' - ')/")
+             await msg.edit(content="/(   ' - ')/")
              await asyncio.sleep(0.7)
      
      @commands.command()
