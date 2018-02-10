@@ -26,6 +26,22 @@ class Misc:
      def __init__(self, bot):
          self.bot = bot
      
+     @commands.command(aliases=['bn'])
+     async def binary(self, ctx, number:int = None):
+         '''converts the given number into binary'''
+         if number is None:
+             await ctx.send('Enter a number :D')
+         else:
+             await ctx.send(bin(number)[2:])
+            
+     @commands.command(aliases=['hex'])
+     async def hexu(self, ctx, number:int = None):
+         '''returns hexadecimal form of the specified number'''
+         if number is None:
+             await ctx.send('Enter a number :D')
+         else:
+             await ctx.send(hex(number)[2:])
+     
      def getColor(self, colorHex):
         return discord.Colour(int(f'0x{colorHex}', 16))
 
