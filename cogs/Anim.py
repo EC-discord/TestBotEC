@@ -39,12 +39,20 @@ class Anim:
      
      @commands.command()
      async def catsu(self, ctx):
+         msg = await ctx.send("""{  |  |  }
+( ^ - ^ )
+( u   u )～""")
+         await asyncio.sleep(0.8)
+         await msg.edit(content="""{ \  / }
+( ^ - ^ )
+( u   u )～""")
+         await asyncio.sleep(0.8)
          for i in range(1, 10, 1):
-             await ctx.message.edit(content="""{  |  |  }
+             await msg.edit(content="""{  |  |  }
 ( ^ - ^ )
 ( u   u )～""")
              await asyncio.sleep(0.8)
-             await ctx.message.edit(content="""{ \  / }
+             await msg.edit(content="""{ \  / }
 ( ^ - ^ )
 ( u   u )～""")
              await asyncio.sleep(0.8)
