@@ -99,19 +99,23 @@ class Misc:
          await ctx.send(avatar)
      
      @commands.command()
-     async def plt(self, ctx, *, args:str = None):
+     async def plt(self, ctx, *, words):
         """PigLatin Translator"""
-        word = args
-        py = "ay"
-        first_word = word[0]
-        if args is None:
-            await ctx.send("Type something O:")
-        else:
-            new_word = word[1:len(word)]
-            new_word = new_word + first_word + py
-            em = discord.Embed(color = 0xffd500)
-            em.description = new_word
-            await ctx.send(embed = em)
+        translated = []
+        words1 = words.split()
+        for word in words1:
+            py = "ay"
+            first_word = word[0]
+            if word is None:
+                await ctx.send("Type something O:")
+            else:
+                new_word = word[1:]
+                new_word = new_word + first_word + py
+                kappa = translated.append(new_word)
+        platin = ' '.join(translated)
+        em = discord.Embed(color = 0xffd500)
+        em.description = platin
+        await ctx.send(embed = em)
           
 def setup(bot):
     bot.add_cog(Misc(bot))
