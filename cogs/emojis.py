@@ -28,7 +28,7 @@ class emojis:
     async def getemoji(self, ctx, emoji_name):
         for guilds in self.bot.guilds:
             emoji = discord.utils.get(guilds.emojis, name=emoji_name)
-            await ctx.send(emoji)
+        await ctx.send(emoji)
         
           
 def setup(bot):
