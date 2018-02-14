@@ -23,6 +23,12 @@ class emojis:
     
         created_emoji = await ctx.guild.create_custom_emoji(name = emoji_name, image = image)
         await ctx.send("Emoji {} created!".format(created_emoji))
+        
+    @commands.command()
+    async def getemoji(self, ctx, emoji_name):
+        emoji = discord.utils.find(guild.emojis, name=emoji_name)
+        await ctx.send(emoji)
+        
           
 def setup(bot):
     bot.add_cog(emojis(bot))
