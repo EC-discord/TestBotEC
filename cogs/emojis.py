@@ -26,7 +26,7 @@ class emojis:
         
     @commands.command()
     async def getemoji(self, ctx, emoji_name):
-        emoji = discord.utils.find(guild.emojis, name=emoji_name)
+        emoji = discord.utils.find(ctx.guild.emojis, name=emoji_name)
         await ctx.send(emoji)
         
           
