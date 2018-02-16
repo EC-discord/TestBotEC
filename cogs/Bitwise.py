@@ -34,3 +34,12 @@ class BitwiseOperators:
           '''**Right Shifts Bits** Returns x with the bits shifted to the right by y places. This is the same as //'ing x by 2**y'''
           result = x >> y
           await ctx.send(result)
+            
+    @commands.command()
+    async def bitnot(self, ctx, *, x:int):
+          '''**Bitwise NOT** Returns the complement of x - the number you get by switching each 1 for a 0 and each 0 for a 1. This is the same as -x - 1'''
+          result = ~x
+          await ctx.send(result)
+        
+def setup(bot):
+    bot.add_cog(BitwiseOperators(bot))
