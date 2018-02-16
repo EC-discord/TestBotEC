@@ -27,7 +27,7 @@ class BitwiseOperators:
     async def bitlshift(self, ctx, *, x:int, y:int):
          '''**Left Shifts Bits** Returns x with the bits shifted to the left by y places (and new bits on the right-hand-side are zeros). This is the same as multiplying x by 2**y'''
          result = x << y
-          await ctx.send(result)
+         await ctx.send(result)
           
     @commands.command()
     async def bitrshift(self, ctx, *, x:int, y:int):
