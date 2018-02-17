@@ -61,8 +61,8 @@ class Information:
         data.add_field(name="Roles", value=len(server.roles), inline = False)
         data.add_field(name="Owner", value=str(server.owner), inline = False)
         data.set_footer(text="Server ID: " + str(server.id))
-        data.set_author(name=server.name, icon_url=None or server.icon_url)
-        data.set_thumbnail(url=None or server.icon_url_as(format='png')        
+        data.set_author(name=server.name, icon_url=None or server.icon_url_as(format='png'))
+        data.set_thumbnail(url=None or server.icon_url_as(format='png'))    
         try:
             await ctx.send(embed=data)
         except discord.HTTPException:
