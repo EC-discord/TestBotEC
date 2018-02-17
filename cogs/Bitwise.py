@@ -12,8 +12,9 @@ class BitwiseOperators:
         result = x & y
         kappa = f'{x:10b}'
         kappa2 = f'{y:10b}'
-        result2= bin(result)[2:]
-        await ctx.send("%s\n%s\n-------------------\n%s" % (kappa, kappa2, result2)
+        result2 = bin(result)[2:]
+        result3 = f'{result:10b}'
+        await ctx.send("%s\n%s\n-------------------\n%s" % (kappa, kappa2, result3)
         await asyncio.sleep(0.5)
         await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
         
