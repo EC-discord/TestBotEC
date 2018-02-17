@@ -19,7 +19,7 @@ class Information:
     @commands.command(aliases=['sicon'], no_pm=True)
     async def serverlogo(self, ctx):
         '''Return the server's icon url.'''
-        icon = ctx.guild.icon_url
+        icon = ctx.guild.icon_url_as(format='png')
         color = await ctx.get_dominant_color(icon)
         server = ctx.guild
         em = discord.Embed(color=color, url=icon)
@@ -62,8 +62,8 @@ class Information:
         data.add_field(name="Owner", value=str(server.owner), inline = False)
         data.set_footer(text="Server ID: " + str(server.id))
         data.set_author(name=server.name, icon_url=None or server.icon_url)
-        data.set_thumbnail(url=None or server.icon_url)
-        try:
+        data.set_thumbnail(url=None or server.icon_url_as(format='png')        
+	try:
             await ctx.send(embed=data)
         except discord.HTTPException:
             em_list = await embedtobox.etb(data)
@@ -94,7 +94,7 @@ class Information:
         member_number = sorted(server.members, key=lambda m: m.joined_at).index(user) + 1
         em = discord.Embed(colour=color, timestamp=time)
         em.set_thumbnail(url=avi)
-        em.add_field(name='Name:', value=user.name, inline = False)
+        em.add_field(name='Name:', value=user.name, inline = True)
         em.add_field(name='NickName:', value=user.nick, inline = False)
         em.add_field(name='Member No:',value=str(member_number), inline = False)
         em.add_field(name='Status:', value=user.status, inline = False)
@@ -104,7 +104,7 @@ class Information:
         em.add_field(name='Join Date:', value=joined_at, inline = False)
         em.add_field(name='Roles:', value=rolenames, inline=True)
         em.set_footer(text='User ID: '+str(user.id))
-        em.set_author(name=user, icon_url=server.icon_url)
+        em.set_author(name=user, icon_url=server.icon_url_as(format='png'))
 
         try:
             await ctx.send(embed=em)
@@ -120,7 +120,7 @@ class Information:
         author = ctx.message.author
         emb = discord.Embed()
         emb.color = await ctx.get_dominant_color(url=author.avatar_url)
-        emb.set_author(name ="8ball's Predictions" ,icon_url = author.avatar_url)
+        emb.set_author(name ="Prediction" ,icon_url = author.avatar_url_as('png'))
         emb.add_field(name='\N{BILLIARDS} Your answer:', value=random.choice(choices), inline=True)
         await ctx.send(embed=emb)
 
@@ -130,10 +130,10 @@ class Information:
         '''About The bot, info, usage, process'''
         about = """created by EC#1269, **Support Server:** https://discord.gg/bmeBBdd"""
 
-        embed = discord.Embed()
-        embed.colour = await ctx.get_dominant_color(ctx.author.avatar_url)
+        embed = discord.Embed(color = colorsu)
+        colorsu = await ctx.get_dominant_color(ctx.author.avatar_url)
 
-        embed.set_author(name='Jake', icon_url=ctx.author.avatar_url)
+        embed.set_author(name='Jake', icon_url=ctx.author.avatar_url_as('png'))
 
         total_members = sum(1 for _ in self.bot.get_all_members())
         total_online = len({m.id for m in self.bot.get_all_members() if m.status is discord.Status.online})
@@ -152,10 +152,9 @@ class Information:
         if days:
             fmt = '{d}d ' + fmt
         uptime = fmt.format(d=days, h=hours, m=minutes, s=seconds)
-        embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.jpg")
+        embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.png")
         embed.add_field(name='Owner', value='EC#1269/nID:332040459335761921', inline = False)
         embed.add_field(name='About', value=about, inline = False)
-        embed.add_field(name='Owner\'s Coding Sensei\'s ID', value='280271578850263040\nThank You', inline = False)
         embed.add_field(name='Uptime', value=uptime, inline = False)
         embed.add_field(name='Guilds', value=len(self.bot.guilds), inline = False)
         embed.add_field(name='Total Users (Online/Total)', value=f'{total_online}/{total_unique}', inline = False)
