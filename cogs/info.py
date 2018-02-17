@@ -130,7 +130,7 @@ class Information:
         about = """created by EC#1269, **Support Server:** https://discord.gg/bmeBBdd"""
         colorsu = await ctx.get_dominant_color(ctx.author.avatar_url)
         embed = discord.Embed(color = colorsu)
-        embed.set_author(name='Jake', icon_url=ctx.author.avatar_url_as('png'))
+        embed.set_author(name='Jake', icon_url=ctx.author.avatar_url_as(format='png'))
         total_members = sum(1 for _ in self.bot.get_all_members())
         total_online = len({m.id for m in self.bot.get_all_members() if m.status is discord.Status.online})
         total_unique = len(self.bot.users)
