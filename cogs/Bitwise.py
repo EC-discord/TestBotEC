@@ -13,7 +13,7 @@ class BitwiseOperators:
         kappa = bin(x)[2:]
         kappa2 = bin(y)[2:]
         result2= bin(result)[2:]
-        await ctx.send("%s\n%s\n-----------------\n%s" %(kappa, kappa2, result2)
+        await ctx.send("%s\n%s\n-----------------\n%s" %(kappa, kappa2, result2))
         await asyncio.sleep(0.5)
         await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
         
