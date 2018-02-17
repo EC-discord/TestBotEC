@@ -63,7 +63,7 @@ class Information:
         data.set_footer(text="Server ID: " + str(server.id))
         data.set_author(name=server.name, icon_url=None or server.icon_url)
         data.set_thumbnail(url=None or server.icon_url_as(format='png')        
-	try:
+        try:
             await ctx.send(embed=data)
         except discord.HTTPException:
             em_list = await embedtobox.etb(data)
