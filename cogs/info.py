@@ -105,7 +105,6 @@ class Information:
         em.add_field(name='Roles:', value=rolenames, inline=True)
         em.set_footer(text='User ID: '+str(user.id))
         em.set_author(name=user, icon_url=server.icon_url_as(format='png'))
-
         try:
             await ctx.send(embed=em)
         except discord.HTTPException:
