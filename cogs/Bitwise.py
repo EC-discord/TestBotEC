@@ -10,10 +10,10 @@ class BitwiseOperators:
     async def bitand(self, ctx, x:int, y:int):
         '''Bitwise AND : Each bit of the output is 1 if the corresponding bit of x AND of y is 1, otherwise it's 0'''
         result = x & y
-        kappa = bin(x)[2:]
-        kappa2 = bin(y)[2:]
+        kappa = f'{x:10b}'
+        kappa2 = f'{y:10b}'
         result2= bin(result)[2:]
-        await ctx.send("%s\n%s\n-----------------\n%s" %(kappa, kappa2, result2))
+        await ctx.send("%s\n%s\n-------------------\n%s" % (kappa, kappa2, result2)
         await asyncio.sleep(0.5)
         await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
         
