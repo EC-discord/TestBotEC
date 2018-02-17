@@ -17,7 +17,7 @@ class Mod:
     async def format_mod_embed(self, ctx, user, success, method, duration = None, location=None):
         """skidding intensefies"""
         emb = discord.Embed(timestamp=ctx.message.created_at)
-        emb.set_author(name=method.title(), icon_url=user.avatar_url)
+        emb.set_author(name=method.title(), icon_url=user.avatar_url_as('png'))
         emb.color = await ctx.get_dominant_color(user.avatar_url)
         emb.set_footer(text=f'User ID: {user.id}')
         if success:
@@ -54,7 +54,7 @@ class Mod:
             okay = 'You do not have the required permissions to **KICK** members.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Unable To Kick .-.', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Unable To Kick .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -80,7 +80,7 @@ class Mod:
             okay2 = 'You do not have the required permissions to **BAN** or **UNBAN** members .-.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Unable To Ban .-.', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Unable To Ban .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay2, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -107,7 +107,7 @@ class Mod:
             okay3 = 'You do not have the required permissions to **BAN** or **UNBAN** members.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Unable To Unban .-.', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Unable To Unban .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay3, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -128,7 +128,7 @@ class Mod:
             okay4 = 'You do not have the required permissions to **Purge Messages**.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Unable To Purge .-.', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Unable To Purge .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay4, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -153,7 +153,7 @@ class Mod:
             okay5 = 'You do not have the required permissions to **See The Ban List** .-.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Error', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Error', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay5, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -169,9 +169,9 @@ class Mod:
             ban = await ctx.get_ban(name_or_id)
             em = discord.Embed()
             em.color = await ctx.get_dominant_color(ban.user.avatar_url)
-            em.set_author(name=str(ban.user), icon_url=ban.user.avatar_url)
+            em.set_author(name=str(ban.user), icon_url=ban.user.avatar_url_as('png'))
             em.add_field(name='Reason', value=ban.reason or 'None')
-            em.set_thumbnail(url=ban.user.avatar_url)
+            em.set_thumbnail(url=ban.user.avatar_url_as('png'))
             em.set_footer(text=f'User ID: {ban.user.id}')
 
             await ctx.send(embed=em)
@@ -179,7 +179,7 @@ class Mod:
             okay6 = 'You do not have the required permissions to **See Ban infos** .-.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Error', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Error', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay6, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -246,7 +246,7 @@ class Mod:
             okay7 = 'You do not have the required permissions to **Ban** or **Unban** members .-.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Unable to Ban', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Unable to Ban', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay7, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -296,7 +296,7 @@ class Mod:
             okay8 = 'You do not have the required permissions to **Mute** or **Unmute** members .-.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Unable to Mute', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Unable to Mute', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay8, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
@@ -323,7 +323,7 @@ class Mod:
             okay9 = 'You do not have the required permissions to **Mute** or **Unmute** members .-.'
 
             em = discord.Embed(timestamp=ctx.message.created_at)
-            em.set_author(name= 'Unable to Mute', icon_url=ctx.author.avatar_url)
+            em.set_author(name= 'Unable to Mute', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay9, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
