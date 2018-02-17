@@ -129,9 +129,8 @@ class Information:
         '''About The bot, info, usage, process'''
         about = """created by EC#1269, **Support Server:** https://discord.gg/bmeBBdd"""
 
-        embed = discord.Embed(color = colorsu)
         colorsu = await ctx.get_dominant_color(ctx.author.avatar_url)
-
+	embed = discord.Embed(color = colorsu)
         embed.set_author(name='Jake', icon_url=ctx.author.avatar_url_as('png'))
 
         total_members = sum(1 for _ in self.bot.get_all_members())
