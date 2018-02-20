@@ -19,7 +19,7 @@ class BitwiseOperators:
         elif kappa2 > kappa:
             diff = len(f'{int(kappa2) - int(kappa)}')
             kappa2 = kappa2.rjust(diff, '0')
-        await ctx.send("```%s\n%s\n----------------\n%s```" % (kappa, kappa2, result2))
+        await ctx.send("`%s\n%s\n----------------\n%s`" % (kappa, kappa2, result2))
         await asyncio.sleep(0.5)
         await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
         
