@@ -73,38 +73,30 @@ class Anim:
      async def virus(self, ctx, member : discord.Member = None, *, virus : str):
          wheelList = ['/', '-', '\\', '|']
          wheelIter = iter(wheelList)
+         msg = await ctx.send('`Preparing virus`')
          for i in range(2, 17, 2):
              try:
                  wheel = next(wheelIter)
              except StopIteration:
                  wheelIter = iter(wheelList)
                  wheel = next(wheelIter)
-             await ctx.message.edit(content=f"`[{('▓' * i).ljust(16)}] {wheel} {virus}-virus.exe Packing files.`")
-             await asyncio.sleep(0.6)
-         await ctx.message.edit(content=f"`Injecting virus.   |`")
-         await asyncio.sleep(0.9)
-         await ctx.message.edit(content=f"`Injecting virus..  /`")
-         await asyncio.sleep(0.9)  
-         await ctx.message.edit(content=f"`Injecting virus... -`")
-         await asyncio.sleep(0.9)
-         await ctx.message.edit(content=f"`Successfully Injected {virus}-virus.exe into  `" + member.mention)
+             await msg.edit(content=f"`[{('▓' * i).ljust(16)}] {wheel} {virus}-virus.exe Packing files.`")
+             await asyncio.sleep(1)
+         await msg.edit(content=f"`Injecting virus.   |`")
+         await asyncio.sleep(1)
+         await msg.edit(content=f"`Injecting virus..  /`")
+         await asyncio.sleep(1)  
+         await msg.edit(content=f"`Injecting virus... -`")
+         await asyncio.sleep(1)
+         await msg.edit(content=f"`Successfully Injected {virus}-virus.exe into  `" + member.mention)
 
-     async def on_message(self, message):
-         for bombstr in ['*boom', '💣m']:
-             if message.content.find(bombstr) != -1:
-                 await self._boom(message, bombstr)
-                 break
-
-     async def _boom(self, message, toreplace):
-         boomIndex = message.content.find(toreplace)
-         msgBeforeBoom = message.content[:boomIndex]
-         msgAfterBoom = message.content[boomIndex + len(toreplace):]
+     async def boom(self, ctx):
          for c in range(5, -1, -1):
-             await message.edit(content= msgBeforeBoom + "`THIS MESSAGE WILL SELF DESTRUCT IN %s`" % c + msgAfterBoom)
-             await asyncio.sleep(0.61)
-         await message.edit(content=msgBeforeBoom + "💣" + msgAfterBoom)
-         await asyncio.sleep(0.61)
-         await message.edit(content=msgBeforeBoom + "💥" + msgAfterBoom)
+             await message.edit(content="`THIS MESSAGE WILL SELF DESTRUCT IN %s`" % c)
+             await asyncio.sleep(1)
+         await message.edit(content="💣")
+         await asyncio.sleep(1)
+         await message.edit(content="💥")
           
      
      @commands.command()
@@ -192,7 +184,8 @@ class Anim:
      
      @commands.command()
      async def deadchat(self, ctx):
-         wheelList = ['DEAD CHAT', 'T DEAD CHA', 'AT DEAD CH', 'HAT DEAD C', 'CHAT DEAD', 'D CHAT DEA', 'AD CHAT DE', 'EAD CHAT D']
+         msg = await ctx.send('DEAD CHAT')
+         wheelList = ['T DEAD CHA', 'AT DEAD CH', 'HAT DEAD C', 'CHAT DEAD', 'D CHAT DEA', 'AD CHAT DE', 'EAD CHAT D', 'DEAD CHAT']
          wheelIter = iter(wheelList)
          for i in range(1, 10, 1):
              try:
@@ -200,16 +193,8 @@ class Anim:
              except StopIteration:
                  wheelIter = iter(wheelList)
                  wheel = next(wheelIter)
-             await ctx.message.edit(content=f"`{wheel}`")
-             await asyncio.sleep(0.7)
-     
-     #@commands.command()
-     #async def ghostie(self, ctx):
-         #await ctx.message.edit(content="""(〜' - ')〜
-#〜(' - '〜)""")
-         #await asyncio.sleep(0.8)
-         #await ctx.message.edit(content="""(〜' - ')〜
-#〜(' - '〜)
-     
+             await msg.edit(content=f"`{wheel}`")
+             await asyncio.sleep(1)
+    
 def setup(bot):
    bot.add_cog(Anim(bot))
