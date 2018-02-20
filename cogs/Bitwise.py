@@ -13,11 +13,11 @@ class BitwiseOperators:
         kappa = bin(x)[2:]
         kappa2 = bin(y)[2:]
         result2 = bin(result)[2:]
-        if x > y:
-            diff = x - y
+        if kappa > kappa2:
+            diff = len(kappa)
             kappa = kappa.rjust(diff, '0')
-        elif y > x:
-            diff = y - x
+        elif kappa2 > kappa:
+            diff = len(kappa2)
             kappa2 = kappa2.rjust(diff, '0')
         await ctx.send("```%s\n%s\n----------------\n%s```" % (kappa, kappa2, result2))
         await asyncio.sleep(0.5)
