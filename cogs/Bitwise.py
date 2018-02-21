@@ -16,11 +16,11 @@ class BitwiseOperators:
         if kappa > kappa2:
             diff = len(f'{int(kappa) - int(kappa2)}')
             kappa = kappa.rjust(diff, '0')
-            lines = diff
+            line = diff
         elif kappa2 > kappa:
             diff = len(f'{int(kappa2) - int(kappa)}')
             kappa2 = kappa2.rjust(diff, '0')
-            lines = diff
+            line = diff
         genline = f'{line}' * 2
         await ctx.send("%s\n%s\n%s\n%s" % (kappa, kappa2, genline, result2))
         await asyncio.sleep(0.5)
