@@ -17,7 +17,7 @@ class BitwiseOperators:
             kappa = kappa.rjust(diff, '0')
         elif kappa2 > kappa:
             kappa2 = kappa2.rjust(diff, '0')
-        diff = len(f'{int(kappa) - int(kappa2)}')
+        diff = abs(len(f'{int(kappa) - int(kappa2)}'))
         line = diff
         genline = '--' * line
         await ctx.send("%s\n%s\n%s\n%s" % (kappa, kappa2, genline, result2))
