@@ -18,9 +18,9 @@ class BitwiseOperators:
         leny = len(kappa2)
         lendiff = abs(lenx - leny)
         if kappa > kappa2:
-            kappa = kappa.rjust(lenx, '0')
+            kappa = kappa.rjust(leny, '0')
         elif kappa2 > kappa:
-            kappa2 = kappa2.rjust(leny, '0')
+            kappa2 = kappa2.rjust(lenx, '0')
         genline = '--' * diff
         await ctx.send("%s\n%s\n%s\n%s" % (kappa, kappa2, genline, result2))
         await asyncio.sleep(0.5)
