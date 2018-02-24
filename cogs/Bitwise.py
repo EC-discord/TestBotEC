@@ -13,13 +13,12 @@ class BitwiseOperators:
         kappa = bin(x)[2:]
         kappa2 = bin(y)[2:]
         result2 = bin(result)[2:]
+        diff = abs(len(f'{int(kappa) - int(kappa2)}'))
         if kappa > kappa2:
             kappa = kappa.rjust(diff, '0')
         elif kappa2 > kappa:
             kappa2 = kappa2.rjust(diff, '0')
-        diff = abs(len(f'{int(kappa) - int(kappa2)}'))
-        line = diff
-        genline = '--' * line
+        genline = '--' * diff
         await ctx.send("%s\n%s\n%s\n%s" % (kappa, kappa2, genline, result2))
         await asyncio.sleep(0.5)
         await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
