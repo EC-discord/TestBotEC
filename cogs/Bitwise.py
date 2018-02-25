@@ -16,7 +16,7 @@ class BitwiseOperators:
         diff = abs(len(f'{int(kappa) - int(kappa2)}'))
         lenx = len(kappa)
         leny = len(kappa2)
-        lendiff = max(lenx, leny)
+        lendiff = max(len(x), len(y))
         if kappa > kappa2:
             kappa = kappa.rjust(lendiff, '0')
         elif kappa2 > kappa:
