@@ -14,7 +14,9 @@ class BitwiseOperators:
         kappa2 = bin(y)[2:]
         result2 = bin(result)[2:]
         diff = abs(len(f'{int(kappa) - int(kappa2)}'))
-        lendiff = max(len(kappa), len(kappa2))
+        binary_x = bin(x)
+        binary_y = bin(y)
+        lendiff = max(len(binary_x), len(binary_y))
         if kappa > kappa2:
             kappa = kappa.rjust(lendiff, '0')
         elif kappa2 > kappa:
