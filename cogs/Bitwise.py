@@ -22,10 +22,10 @@ class BitwiseOperators:
         #elif kappa2 > kappa:
             #kappa2 = kappa2.rjust(lendiff, '0')
         #genline = '--' * diff
-        await ctx.send(`{x:0>{width}b}\n
+        await ctx.send(f"""`{x:0>{width}b}\n
 {y:0>{width}b}\n
 {"":->{width}}\n
-{result:0>{width}b}`) #% (kappa, kappa2, genline, result2)
+{result:0>{width}b}`""") #% (kappa, kappa2, genline, result2)
         await asyncio.sleep(0.5)
         await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
         
