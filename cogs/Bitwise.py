@@ -16,7 +16,7 @@ class BitwiseOperators:
         #binary_x = bin(x)
         #binary_y = bin(y)
         lendiff = len(f'{max(x,y):b}')
-        result2 = f'{result:0>{lendiff}:b}'
+        result2 = f"{result:0>{lendiff}:b}"
         #if kappa > kappa2:
             #kappa = kappa.rjust(lendiff, '0')
         #elif kappa2 > kappa:
