@@ -16,13 +16,13 @@ class BitwiseOperators:
         #diff = abs(len(f'{int(kappa) - int(kappa2)}'))
         #binary_x = bin(x)
         #binary_y = bin(y)
-        #lendiff = max(len(binary_x), len(binary_y))
+        lendiff = len(f'{max(x,y):b})
         #if kappa > kappa2:
             #kappa = kappa.rjust(lendiff, '0')
         #elif kappa2 > kappa:
             #kappa2 = kappa2.rjust(lendiff, '0')
         #genline = '--' * diff
-        await ctx.send(f"""`{x:0>{width}b}\n{y:0>{width}b}\n{"":->{width}}\n{result:0>{width}b}`""") #% (kappa, kappa2, genline, result2)
+        await ctx.send(f"""`{x:0>{lendiff}b}\n{y:0>{lendiff}b}\n{"":->{lendiff}}\n{result:0>{lendiff}b}`""") #% (kappa, kappa2, genline, result2)
         await asyncio.sleep(0.5)
         await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
         
