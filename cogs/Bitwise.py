@@ -10,7 +10,7 @@ class BitwiseOperators:
     async def bitand(self, ctx, x:int, y:int):
         '''Bitwise AND : Each bit of the output is 1 if the corresponding bit of x AND of y is 1, otherwise it's 0'''
         result = x & y
-        lendiff = len(f'{max(x,y)}')
+        lendiff = len(f'{max(x,y)}:b')
         result2 = f"{result:0>{lendiff}b}"
         await ctx.send(f"`{x:0>{lendiff}b}\n{y:0>{lendiff}b}\n{"":->{lendiff}\n{result2}`")         
         await asyncio.sleep(0.5)
