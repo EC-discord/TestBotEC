@@ -10,18 +10,8 @@ class BitwiseOperators:
     async def bitand(self, ctx, x:int, y:int):
         '''Bitwise AND : Each bit of the output is 1 if the corresponding bit of x AND of y is 1, otherwise it's 0'''
         result = x & y
-        #kappa = bin(x)[2:]
-        #kappa2 = bin(y)[2:]
-        #diff = abs(len(f'{int(kappa) - int(kappa2)}'))
-        #binary_x = bin(x)
-        #binary_y = bin(y)
         lendiff = len(f'{max(x,y)b}')
         result2 = f"{result:0>{lendiff}b}"
-        #if kappa > kappa2:
-            #kappa = kappa.rjust(lendiff, '0')
-        #elif kappa2 > kappa:
-            #kappa2 = kappa2.rjust(lendiff, '0')
-        #genline = '--' * diff
         await ctx.send(f"`{x:0>{lendiff}b}\n{y:0>{lendiff}b}\n{"":->{lendiff}\n{result2}`")         
         await asyncio.sleep(0.5)
         await ctx.send(f"**Base 10** : {result}\n**Base 2** : {result2}")
