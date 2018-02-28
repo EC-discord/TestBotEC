@@ -14,8 +14,6 @@ from collections import defaultdict
 import datetime
 import aiohttp
 
-# *- encoding: utf-8 -*-
-
 class jakeBot(commands.Bot):
     '''
     A Bot Made by ~ EC#1269 Liam#3273 and Quanta#5556
