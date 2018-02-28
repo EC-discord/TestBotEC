@@ -12,7 +12,7 @@ class BitwiseOperators:
         result = x & y
         lendiff = len(f'{max(x,y):b}')
         result2 = f"{result:0>{lendiff}b}"
-        await ctx.send(f"`{x:0>{lendiff}b}\n{y:0>{lendiff}b}\n{'':->{lendiff}\n{result2}`")         
+        await ctx.send(f"`{x:0>{lendiff}b}\n{y:0>{lendiff}b}\n{'':->{lendiff}}\n{result2}`")         
         await asyncio.sleep(0.5)
         await ctx.send(f"**Base 10** : {result}\n**Base 2** : {result2}")
         
