@@ -18,8 +18,9 @@ class BitwiseOperators:
     async def bitor(self, ctx, x:int, y:int):
         '''Bitwise OR : Each bit of the output is 0 if the corresponding bit of x AND of y is 0, otherwise it's 1'''
         result = x | y
-        result2 = bin(result)[2:]
-        await ctx.send("**Base 10** : %s\n**Base 2** : %s" % (result, result2))
+        lendiff = len(f'{max(x,y):b}')
+        result2 = f"{result:0>{lendiff}b}"
+        await ctx.send(f"`{x:0>{lendiff}b}\n{y:0>{lendiff}b}\n{'':->{lendiff}}\n{result2}`\n**Base 10** : {result}\n**Base 2** : {result2}")
         
     @commands.command()
     async def bitxor(self, ctx, x:int, y:int):
