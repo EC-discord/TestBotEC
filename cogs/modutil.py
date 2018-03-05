@@ -135,7 +135,7 @@ class Mod:
             await ctx.send(embed=em)
     
     @commands.command()
-    async def clean(self, ctx):
+    async def clean(self, ctx, limit : int):
         '''cleans the bots messages'''
         async for message in ctx.channel.history(limit = limit + 1):
             if message.author.id == self.user.id:
