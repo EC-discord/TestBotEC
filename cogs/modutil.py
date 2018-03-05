@@ -132,8 +132,14 @@ class Mod:
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay4, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
-
             await ctx.send(embed=em)
+    
+    @commands.command()
+    async def clean(self, ctx):
+        '''cleans the bots messages'''
+        async for message in ctx.channel.history(limit = limit + 1):
+            if message.author.id == self.user.id:
+                await message.delete()
 
     @commands.command()
     async def banlist(self, ctx):
