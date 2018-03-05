@@ -138,7 +138,7 @@ class Mod:
     async def clean(self, ctx, limit : int):
         '''cleans the bots messages'''
         async for message in ctx.channel.history(limit = limit + 1):
-            if message.author.id == self.user.id:
+            if message.author.id == self.bot.id:
                 await message.delete()
 
     @commands.command()
