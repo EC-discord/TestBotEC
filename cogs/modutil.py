@@ -135,9 +135,9 @@ class Mod:
             await ctx.send(embed=em)
     
     @commands.command()
-    async def clean(self, ctx, limit):
+    async def clean(self, ctx, limit: int):
         '''Clean the bots messages'''
-        integer = int(limit)
+        print(limit)
         await ctx.purge(limit = integer, check = lambda message: message.author.id == 37513898939868774)
 
 
