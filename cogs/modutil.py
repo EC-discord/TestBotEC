@@ -138,7 +138,7 @@ class Mod:
     async def clean(self, ctx, limit: int):
         '''Clean the bots messages'''
         print(limit)
-        await ctx.purge(limit = integer, check = lambda message: message.author.id == 37513898939868774)
+        await ctx.purge(limit = limit + 1, check = lambda message: message.author.id == 37513898939868774)
 
 
     @commands.command()
