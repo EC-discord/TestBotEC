@@ -129,15 +129,16 @@ class Mod:
 
             em = discord.Embed(timestamp=ctx.message.created_at)
             em.set_author(name= 'Unable To Purge .-.', icon_url=ctx.author.avatar_url_as('png'))
-            em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay4, inline = False)
+            em.add_field(name = '**No Permission**', value = okay4, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
             await ctx.send(embed=em)
     
     @commands.command()
-    async def clean(self, ctx, limit : int):
-        '''cleans the bots messages'''
-        await ctx.delete(limit = limit + 1, check = lambda m: m.author == ctx.author)
+    async def clean(self, ctx, limit : int=1000000):
+        '''Clean the bots messages'''
+        await ctx.purge(limit=limit+1, check=lambda m: m.author == ctx.author)
+
 
     @commands.command()
     async def banlist(self, ctx):
