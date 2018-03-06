@@ -137,7 +137,7 @@ class Mod:
     @commands.command()
     async def clean(self, ctx, limit : int):
         '''cleans the bots messages'''
-        await ctx.purge(limit = limit + 1, check = lambda m: m.author == ctx.author)
+        await ctx.delete(limit = limit + 1, check = lambda m: m.author == ctx.author)
 
     @commands.command()
     async def banlist(self, ctx):
