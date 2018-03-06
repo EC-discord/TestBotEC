@@ -70,6 +70,18 @@ class Anim:
              await asyncio.sleep(1)
      
      @commands.command()
+     async def dance2(self, ctx):
+         msg = await ctx.send(content="\\\*(' - '   )\\*")
+         await asyncio.sleep(1)
+         await msg.edit(content="/*(   ' - ')*/")
+         await asyncio.sleep(1)
+         for i in range(1, 10, 1):
+             await msg.edit(content="\\\*(' - '   )*\\")
+             await asyncio.sleep(1)
+             await msg.edit(content="/*(   ' - ')*/")
+             await asyncio.sleep(1)
+     
+     @commands.command()
      async def virus(self, ctx, member : discord.Member = None, *, virus : str):
          wheelList = ['/', '-', '\\', '|']
          wheelIter = iter(wheelList)
@@ -168,7 +180,7 @@ class Anim:
      
      @commands.command()
      async def woah(self, ctx):
-         m = await ctx.message.edit(content="(   ' O ')")
+         m = await ctx.send("(   ' O ')")
          await asyncio.sleep(1)
          await m.edit(content="(  ' O ' )")
          await asyncio.sleep(1)
