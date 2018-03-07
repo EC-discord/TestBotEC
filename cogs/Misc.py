@@ -95,7 +95,7 @@ class Misc:
          """gets the profile pic of the user"""
          await ctx.message.delete()
          mem = member or ctx.author
-         avatar = mem.avatar_url_as(static_format='PNG', size = 1024)
+         avatar = mem.avatar_url_as(format= "PNG")
          await ctx.send(avatar)
      
      @commands.command()
