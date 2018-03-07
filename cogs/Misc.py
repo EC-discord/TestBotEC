@@ -93,7 +93,8 @@ class Misc:
      @commands.command()
      async def picsu(self, ctx, *, member : discord.Member = None):
          """gets the profile pic of the user"""
-         await ctx.message.delete()
+         if ctx.author.guild_permissions.manage_messages == True:
+             await ctx.message.delete()
          mem = member or ctx.author
          avatar = mem.avatar_url_as(format= "PNG")
          await ctx.send(avatar)
