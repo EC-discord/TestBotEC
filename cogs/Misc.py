@@ -96,7 +96,7 @@ class Misc:
          if ctx.author.guild_permissions.manage_messages == True:
              await ctx.message.delete()
          mem = member or ctx.author
-         avatar = mem.avatar_url_as(format= "PNG")
+         avatar = mem.avatar_url_as(format = "png")
          await ctx.send(avatar)
      
      @commands.command()
