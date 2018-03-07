@@ -97,7 +97,11 @@ class Misc:
              await ctx.message.delete()
          mem = member or ctx.author
          avatar = mem.avatar_url_as(format = "png")
-         await ctx.send(avatar)
+         if ctx.author.guild_permissions.embed_links == True:
+             em = discord.Embed(color = 0xffd500)
+             await ctx.send(embed = em)
+         else:
+             await ctx.send(avatar)
      
      @commands.command()
      async def plt(self, ctx, *, words):
