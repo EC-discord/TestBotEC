@@ -98,7 +98,9 @@ class Misc:
          mem = member or ctx.author
          avatar = mem.avatar_url_as(format = "png")
          if ctx.author.guild_permissions.embed_links == True:
-             em = discord.Embed(color = 0xffd500)
+             em = discord.Embed(url = avatar, color = 0xffd500)
+             em.set_author(name = mem.name, icon_url = avatar)
+             em.set_image(url = avatar)
              await ctx.send(embed = em)
          else:
              await ctx.send(avatar)
@@ -120,7 +122,10 @@ class Misc:
         platin = ' '.join(translated)
         em = discord.Embed(color = 0xffd500)
         em.description = platin
-        await ctx.send(embed = em)
+        if ctx.author.guild_permissions.embed_links == True:
+            await ctx.send(embed = em)
+        else:
+            await ctx.send(platin)
           
 def setup(bot):
     bot.add_cog(Misc(bot))
