@@ -32,7 +32,13 @@ class Misc:
          if number is None:
              await ctx.send('Enter a number :D')
          else:
-             await ctx.send(bin(number)[2:])
+             num = bin(number)[2:]
+             if ctx.author.guild_permissions.embed_links == True:
+                 em = discord.Embed(color = 0xffd500)
+                 em.description = num
+                 await ctx.send(embed = em)
+             else:
+                 await ctx.send(num)
             
      @commands.command(aliases=['hex'])
      async def hexu(self, ctx, number:int = None):
