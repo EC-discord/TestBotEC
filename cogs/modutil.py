@@ -137,9 +137,7 @@ class Mod:
     @commands.command()
     async def clean(self, ctx, limit: int):
         '''Clean the bots messages'''
-        async for message in ctx.channel.history(limit = limit + 1):
-            if message.author.id == 37513898939868774:
-                await message.delete()
+        await ctx.purge(limit=100, check=lambda m: m.author.id == 375138989398687746)
 
 
     @commands.command()
