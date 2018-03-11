@@ -102,7 +102,7 @@ class Misc:
          if ctx.author.guild_permissions.manage_messages == True:
              await ctx.message.delete()
          mem = member or ctx.author
-         avatar = mem.avatar_url_as(format = None, static_url = 'png')
+         avatar = mem.avatar_url_as(format = None, static_format = 'png')
          if ctx.author.guild_permissions.embed_links == True:
              em = discord.Embed(url = avatar, color = 0xffd500)
              em.set_author(name = mem.name, icon_url = avatar)
