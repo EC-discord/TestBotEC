@@ -47,6 +47,22 @@ class general:
          await ctx.send(emo)
 
 
+    @commands.command()
+    async def getallemojis(self, ctx):
+         """gets all emojis from every server the bot is in"""
+         l = []
+         for server in self.bot.guilds:
+             for e in server.emojis:
+                 name = e.name+ " " + "{}".format(e)
+                 l.append (name)
+             emo = ' '.join(l)
+         if ctx.author.guild_permissions.embed_links == True:
+             em = discord.Embed(color = 0xffd500)
+             em.description = emo
+             await ctx.send(embed = em)
+         else:
+             await ctx.send(emo)            
+
 
 def setup(bot):
 	bot.add_cog(general(bot))
