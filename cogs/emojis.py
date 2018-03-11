@@ -12,17 +12,19 @@ class emojis:
     async def addemoji(self, ctx, emoji_name, emoji_link = ''):
         session = ClientSession()
         msg: discord.Message = ctx.message
-        if msg.attachments:
-            image = msg.attachments[0]
-        elif emoji_link:
-            async with session.get(emoji_link) as resp:
-                image = await resp.read()
+        if ctx.author.guild_permissions.manage_emojis == True:
+            if msg.attachments:
+                image = msg.attachments[0]
+            elif emoji_link:
+                async with session.get(emoji_link) as resp:
+                    image = await resp.read()
+            else:
+                await ctx.send("No valid emoji provided.")
+                return
+            created_emoji = await ctx.guild.create_custom_emoji(name = emoji_name, image = image)
+            await ctx.send("Emoji {} created!".format(created_emoji))
         else:
-            await ctx.send("No valid emoji provided.")
-            return
-    
-        created_emoji = await ctx.guild.create_custom_emoji(name = emoji_name, image = image)
-        await ctx.send("Emoji {} created!".format(created_emoji))
+            await ctx.send("You do not have the **Manage emojis** perm")
         
     @commands.command()
     async def getemoji(self, ctx, emoji_name):
