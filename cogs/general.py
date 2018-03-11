@@ -56,12 +56,12 @@ class general:
                  name = e.name+ " " + "{}".format(e)
                  l.append (name)
              emo = ' '.join(l)
-         if ctx.author.guild_permissions.embed_links == True:
-             em = discord.Embed(color = 0xffd500)
-             em.description = emo
-             await ctx.send(embed = em)
-         else:
-             await ctx.send(emo)            
+         #if ctx.author.guild_permissions.embed_links == True:
+         #    em = discord.Embed(color = 0xffd500)
+         #    em.description = emo
+         #    await ctx.send(embed = em)
+         #else:
+         await ctx.send(emo)            
 
 
 def setup(bot):
