@@ -134,10 +134,12 @@ class Mod:
             em.set_footer(text= 'Jake')
             await ctx.send(embed=em)
     
-    @commands.command()
-    async def clean(self, ctx, limit: int):
-        '''Clean the bots messages'''
-        await ctx.purge(limit=100, check=lambda m: m.author.id == 375138989398687746)
+    def is_me(m):
+    return m.author == bot.user
+
+    @commands.command(invoke_without_command = True)
+    async def clean(self, ctx):
+        deleted = await ctx.purge(limit=100, check=is_me)
 
 
     @commands.command()
