@@ -1,7 +1,7 @@
 
 '''
 Originally Base-Derived
-Owner - EC#1269, Liam#3273, Quanta#5556
+Owner - EC#7115, Liam#7777, Quanta#5556
 '''
 import os
 import discord
