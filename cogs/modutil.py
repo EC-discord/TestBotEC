@@ -135,7 +135,7 @@ class Mod:
             await ctx.send(embed=em)
     
     def is_me(m):
-    return m.author == bot.user
+        return m.author == bot.user
 
     @commands.command(invoke_without_command = True)
     async def clean(self, ctx):
