@@ -115,7 +115,7 @@ class Information:
         author = ctx.message.author
         emb = discord.Embed()
         emb.color = await ctx.get_dominant_color(url=author.avatar_url)
-        emb.set_author(name ="Prediction" ,icon_url = author.avatar_url_as('png'))
+        emb.set_author(name ="Prediction" ,icon_url = author.avatar_url_as(format = 'png'))
         emb.add_field(name='\N{BILLIARDS} Your answer:', value=random.choice(choices), inline=True)
         await ctx.send(embed=emb)
 
