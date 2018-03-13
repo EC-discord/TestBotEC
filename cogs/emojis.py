@@ -33,7 +33,7 @@ class emojis:
         await ctx.send(emoji)
     
     @commands.command()
-    async def emojiurl(self, ctx, emoji):
+    async def emojiurl(self, ctx, emoji: discord.Emoji):
         await ctx.send(emoji.url)
           
 def setup(bot):
