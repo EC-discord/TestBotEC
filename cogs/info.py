@@ -106,12 +106,7 @@ class Information:
         em.set_footer(text='User ID: '+str(user.id))
         em.set_author(name=user, icon_url=server.icon_url_as(format='png'))
         em.set_thumbnail(url = user.avatar_url_as(formst = None, static_format = 'png')
-        try:
-            await ctx.send(embed=em)
-        except discord.HTTPException:
-            em_list = await embedtobox.etb(em)
-            for page in em_list:
-                await ctx.send(page)
+        await ctx.send(embed=em)
 
     @commands.command(aliases=['8ball'])
     async def ask(self, ctx, *, question=None):
