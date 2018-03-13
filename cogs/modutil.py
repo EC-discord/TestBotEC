@@ -133,12 +133,10 @@ class Mod:
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
             em.set_footer(text= 'Jake')
             await ctx.send(embed=em)
-    
-    def is_me(m):
-        return m.author == bot.user
 
     @commands.command(invoke_without_command = True)
     async def clean(self, ctx):
+        is_me = message.author == bot.user
         deleted = await ctx.purge(limit=100, check=is_me)
 
 
