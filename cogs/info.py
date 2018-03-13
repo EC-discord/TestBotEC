@@ -105,7 +105,7 @@ class Information:
         em.add_field(name='Roles:', value=rolenames, inline=True)
         em.set_footer(text='User ID: '+str(user.id))
         em.set_author(name=user, icon_url=server.icon_url_as(format='png'))
-        em.set_thumbnail(url = user.avatar_url_as(formst = None, static_format = 'png')
+        em.set_thumbnail(url = user.avatar_url_as(formst = None, static_format = 'png'))
         await ctx.send(embed=em)
 
     @commands.command(aliases=['8ball'])
