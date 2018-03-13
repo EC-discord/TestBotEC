@@ -136,7 +136,7 @@ class Mod:
 
     @commands.command(invoke_without_command = True)
     async def clean(self, ctx):
-        is_me = message.author == bot.user
+        is_me = m.author == bot.user
         deleted = await ctx.purge(limit=100, check=is_me)
 
 
