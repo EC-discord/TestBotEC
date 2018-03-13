@@ -31,7 +31,10 @@ class emojis:
         for guilds in self.bot.guilds:
             emoji = discord.utils.get(guilds.emojis, name=emoji_name)
         await ctx.send(emoji)
-        
+    
+    @commands.command()
+    async def emojiurl(self, ctx, emoji):
+        await ctx.send(emoji.url)
           
 def setup(bot):
     bot.add_cog(emojis(bot))
