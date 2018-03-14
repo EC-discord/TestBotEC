@@ -136,7 +136,8 @@ class Mod:
 
     @commands.command(invoke_without_command = True)
     async def clean(self, ctx):
-        await ctx.purge(limit=100, check=ctx.message.author == self.bot.user)
+        message: discord.Message
+        await ctx.purge(limit=100, check=message.author == self.bot.user)
 
 
     @commands.command()
