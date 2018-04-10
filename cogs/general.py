@@ -59,7 +59,7 @@ class general:
              emo = ' '.join(l)
              var = emo.split('\n')
              for stuff in var:
-                 addLine(stuff)
+                 paginator.addLine(stuff)
              for page in paginator.pages:
                  await ctx.send(page)           
 
