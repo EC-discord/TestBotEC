@@ -5,7 +5,7 @@ import random
 from discord.ext import commands
 from cleverwrap import CleverWrap
 import asyncio
-from ext import Paginator
+from ext import paginator
 
 
 class general:
