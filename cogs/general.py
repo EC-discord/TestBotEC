@@ -5,6 +5,7 @@ import random
 from discord.ext import commands
 from cleverwrap import CleverWrap
 import asyncio
+from ext import Paginator
 
 
 class general:
@@ -56,12 +57,11 @@ class general:
                  name = e.name+ " " + "{}".format(e)
                  l.append (name)
              emo = ' '.join(l)
-         #if ctx.author.guild_permissions.embed_links == True:
-         #    em = discord.Embed(color = 0xffd500)
-         #    em.description = emo
-         #    await ctx.send(embed = em)
-         #else:
-         await ctx.send(emo)            
+             var = emo.split('\n')
+             for stuff in var:
+                 addLine(stuff)
+             for page in Paginator.pages:
+                 await ctx.send(page)           
 
 
 def setup(bot):
