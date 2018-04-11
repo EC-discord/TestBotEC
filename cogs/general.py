@@ -59,11 +59,9 @@ class general:
                  name = f"{e}"
                  l.append(name)
              emo = ' '.join(l)
-             allemojis.append(emo)
-         for emoji in allemojis:
              var = emoji.split('\n')
-         for stuff in var:
-             paginator.addLine(stuff)
+             for stuff in var:
+                 paginator.addLine(stuff)
          for page in paginator.pages:
              await ctx.send(page)           
 
