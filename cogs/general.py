@@ -60,7 +60,7 @@ class general:
                  l.append(name)
              emo = ' '.join(l)
          #var = emo.split('\n')
-         allemojis.join(emo)
+         allemojis.append(emo)
          for emoji in allemojis:
              for stuff in emojis:
                  paginator.addLine(stuff)
