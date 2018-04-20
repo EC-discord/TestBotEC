@@ -60,8 +60,8 @@ class general:
                  allemojis.append(name)
              spam = ' '.join(allemojis)
              servers.append(allemojis)
-         #for server in servers:
-         paginator.addLine(servers)
+         for server in servers:
+             paginator.addLine(servers)
          for page in paginator.pages:
              await ctx.send(page)           
 
