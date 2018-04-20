@@ -61,7 +61,7 @@ class general:
              servers.append(allemojis)
          for server in servers:
              emo = '''\n'''.join(server)
-         var = emo
+         var = emo.split('\n')
          print(var)
          for stuff in var:
              paginator.addLine(stuff)
