@@ -59,7 +59,8 @@ class general:
                  name = f"{e}"
                  allemojis.append(name)
              servers.append(allemojis)
-         emo = '''\n'''.join(servers)
+         for server in servers:
+             emo = '''\n'''.join(server)
          var = emo
          print(var)
          for stuff in var:
