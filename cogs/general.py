@@ -56,9 +56,10 @@ class general:
          for server in self.bot.guilds:
              for e in server.emojis:
                  name = f"{e}"
-                 l.append(name)
+                 l.append(name)            
          emo = ' '.join(l)
          var = emo.split('\n')
+         print(var)
          for stuff in var:
              paginator.addLine(stuff)
          for page in paginator.pages:
