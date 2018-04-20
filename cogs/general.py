@@ -57,7 +57,7 @@ class general:
              for e in server.emojis:
                  name = f"{e}"
                  l.append(name)
-             emo = ' '.join(l)
+         emo = ' '.join(l)
          var = emo.split('\n')
          for stuff in var:
              paginator.addLine(stuff)
