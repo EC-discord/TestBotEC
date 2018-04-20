@@ -58,6 +58,7 @@ class general:
              for e in server.emojis:
                  name = f"{e}"
                  allemojis.append(name)
+             spam = ' '.join(allemojis)
              servers.append(allemojis)
          for server in servers:
              paginator.addLine(stuff)
