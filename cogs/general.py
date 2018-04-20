@@ -59,8 +59,8 @@ class general:
                  name = f"{e}"
                  allemojis.append(name)
              servers.append(allemojis)
-         emo = ' '.join(servers)
-         var = emo.split('\n')
+         emo = '''\n'''.join(servers)
+         var = emo
          print(var)
          for stuff in var:
              paginator.addLine(stuff)
