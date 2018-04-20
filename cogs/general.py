@@ -51,13 +51,15 @@ class general:
     @commands.command()
     async def getallemojis(self, ctx):
          """gets all emojis from every server the bot is in"""
-         l = []
+         allemojis = []
+         servers = []
          paginator = Paginator()
          for server in self.bot.guilds:
              for e in server.emojis:
                  name = f"{e}"
-                 l.append(name)            
-         emo = ''' '''.join(l)
+                 allemojis.append(name)
+             servers.append(allemojis)
+         emo = ' '.join(servers)
          var = emo.split('\n')
          print(var)
          for stuff in var:
