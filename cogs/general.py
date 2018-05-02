@@ -54,7 +54,7 @@ class general:
          paginator = Paginator()
          for server in self.bot.guilds:
              paginator.addLine(f'{server.name}:')
-             all_emoji_names_list = ["<" + e.name + ':' + str(e.id) + ">" for e in server.emojis]
+             all_emoji_names_list = ["<:" + e.name + ':' + str(e.id) + ">" for e in server.emojis]
              all_emoji_names = ' '.join(all_emoji_names_list)
 
              line_list = []
