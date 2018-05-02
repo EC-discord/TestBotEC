@@ -68,7 +68,8 @@ class general:
              for line in line_list:
                  paginator.addLine(line)
          for page in paginator.pages:
-             await ctx.send(page)   
+             await ctx.send(page)
+             await asyncio.sleep(1)
 
 
 def setup(bot):
