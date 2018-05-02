@@ -52,7 +52,7 @@ class general:
     async def getallemojis(self, ctx):
          """gets all emojis from every server the bot is in"""
          paginator = Paginator()
-         for server in bot.guilds:
+         for server in self.bot.guilds:
              paginator.addLine(f'{server.name}:')
              all_emoji_names_list = [e.name for e in server.emoji]
              all_emoji_names = ' '.join(all_emoji_names_list)
