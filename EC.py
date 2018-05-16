@@ -110,7 +110,7 @@ class jakeBot(commands.Bot):
             if r['status'] == 'success':
                 await ctx.send(r['response'])
 
-    requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'Jake'})
+    #requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'Jake'})
     
 
 
