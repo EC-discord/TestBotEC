@@ -108,7 +108,7 @@ class jakeBot(commands.Bot):
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
             r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':txt}).text)
             if r['status'] == 'success':
-                await ctx.(r['response'])
+                await ctx.send(r['response'])
 
     requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'Jake'})
     
