@@ -102,7 +102,7 @@ class jakeBot(commands.Bot):
     user = '8AqgmvzYlITxw4sE'
     key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
-    async def on_message(self, ctx, message = None):
+    async def on_message(self, ctx, message):
         if not ctx.message.author.bot and (ctx.message.server == None or ctx.message.author in message.mentions):
             await ctx.trigger_typing()
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
