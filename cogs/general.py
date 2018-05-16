@@ -70,7 +70,18 @@ class general:
          for page in paginator.pages:
              await ctx.send(page)
              await asyncio.sleep(3)
+           
+         
+    user = '8AqgmvzYlITxw4sE'
+    key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
+    @commands.command
+    async def jake(self, ctx, message):
+            await ctx.trigger_typing()
+            txt = ctx.message.content.replace(ctx.message.server.me.mention,'') if message.server else message.content
+            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':txt}).text)
+            if r['status'] == 'success':
+                await ctx.send(r['response'])
 
 def setup(bot):
 	bot.add_cog(general(bot))
