@@ -75,7 +75,7 @@ class general:
     user = '8AqgmvzYlITxw4sE'
     key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
-    @commands.command
+    @commands.command()
     async def jake(self, ctx, message):
             await ctx.trigger_typing()
             txt = ctx.message.content.replace(ctx.message.server.me.mention,'') if message.server else message.content
