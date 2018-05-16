@@ -6,6 +6,7 @@ from discord.ext import commands
 from cleverwrap import CleverWrap
 import asyncio
 from ext.paginator import Paginator
+import requests
 
 
 class general:
