@@ -78,7 +78,7 @@ class general:
     @commands.command()
     async def jake(self, ctx, message):
             await ctx.trigger_typing()
-            txt = ctx.message.content.replace(ctx.message.server.me.mention,'') if message.content
+            txt = ctx.message.content.replace(ctx.message.server.me.mention,'')
             r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':txt}).text)
             if r['status'] == 'success':
                 await ctx.send(r['response'])
