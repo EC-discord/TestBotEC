@@ -103,7 +103,7 @@ class jakeBot(commands.Bot):
     key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
     async def on_message(self, message):
-        if not message.author.bot and (message.channel == None or message.author in message.mentions):
+        if not message.author.bot and message.author in message.mentions:
             await ctx.trigger_typing()
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
             r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':txt}).text)
