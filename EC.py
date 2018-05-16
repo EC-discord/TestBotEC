@@ -102,13 +102,13 @@ class jakeBot(commands.Bot):
     user = '8AqgmvzYlITxw4sE'
     key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
-    async def on_message(self, ctx, message):
-        if not ctx.message.author.bot and (ctx.message.server == None or ctx.message.author in message.mentions):
+    async def on_message(self, message):
+        if not message.author.bot and (ctx.message.server == None or message.author in message.mentions):
             await ctx.trigger_typing()
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
             r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':txt}).text)
             if r['status'] == 'success':
-                await ctx.send(r['response'])
+                await message.channel.send(r['response'])
 
     #requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'Jake'})
     
