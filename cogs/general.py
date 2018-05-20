@@ -81,6 +81,8 @@ class general:
             r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':message}).text)
             if r['status'] == 'success':
                 await ctx.send(r'response')
+            
+            (requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':message})
 
 def setup(bot):
 	bot.add_cog(general(bot))
