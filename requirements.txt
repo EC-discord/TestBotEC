@@ -12,5 +12,5 @@ urban-async
 moviepy
 spice_api
 cleverwrap
-yar<1.2
+yarl<1.2
 
