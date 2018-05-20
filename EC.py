@@ -13,6 +13,7 @@ import json
 from collections import defaultdict
 import datetime
 import aiohttp
+pip install "yarl<1.2"
 
 class jakeBot(commands.Bot):
     '''
