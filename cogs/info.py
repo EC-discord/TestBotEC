@@ -95,7 +95,7 @@ class Information:
         em = discord.Embed(colour=color, timestamp=time)
         em.set_thumbnail(url=avi)
         em.add_field(name='Name:', value=user.name, inline = True)
-        em.add_field(name='NickName:', value=user.nick, inline = False)
+        em.add_field(name='NickName:', value=user.nick, inline = True)
         em.add_field(name='Member No:',value=str(member_number), inline = False)
         em.add_field(name='Status:', value=user.status, inline = False)
         #em.add_field(name='Account Created:', value=user.created_at.__format__('%A, %d. %B %Y'), inline = False)
@@ -115,7 +115,7 @@ class Information:
         author = ctx.message.author
         emb = discord.Embed()
         emb.color = await ctx.get_dominant_color(url=author.avatar_url)
-        emb.set_author(name ="Prediction" ,icon_url = author.avatar_url_as(format = 'png'))
+        emb.set_author(name ="Prediction" ,icon_url = author.avatar_url_as(static_format = 'png'))
         emb.add_field(name='\N{BILLIARDS} Your answer:', value=random.choice(choices), inline=True)
         await ctx.send(embed=emb)
 
@@ -123,7 +123,7 @@ class Information:
     @commands.command(aliases=['bot', 'info'])
     async def about(self, ctx):
         '''About The bot, info, usage, process'''
-        about = """created by EC#1269, **Support Server:** https://discord.gg/bmeBBdd"""
+        about = """created by EC#7115, **Support Server:** https://discord.gg/bmeBBdd"""
         colorsu = await ctx.get_dominant_color(ctx.author.avatar_url)
         embed = discord.Embed(color = colorsu)
         embed.set_author(name='Jake', icon_url=ctx.author.avatar_url_as(format='png'))
