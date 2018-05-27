@@ -136,7 +136,9 @@ class Mod:
 
     @commands.command(invoke_without_command = True)
     async def clean(self, ctx, limit : int = 15):
-        await ctx.purge(limit=limit, check=message.author == self.bot.user)
+        '''Clean a number of bot messages'''
+        if ctx.message.author.id == 332040459335761921:
+            await ctx.purge(limit=limit+1, check=lambda m: m.author == self.bot.user)
 
 
     @commands.command()
