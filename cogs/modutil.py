@@ -135,9 +135,8 @@ class Mod:
             await ctx.send(embed=em)
 
     @commands.command(invoke_without_command = True)
-    async def clean(self, ctx):
-        message: discord.Message
-        await ctx.purge(limit=100, check=message.author == self.bot.user)
+    async def clean(self, ctx, limit : int = 15):
+        await ctx.purge(limit=limit, check=message.author == self.bot.user)
 
 
     @commands.command()
