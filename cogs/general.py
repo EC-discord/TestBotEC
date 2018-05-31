@@ -17,10 +17,10 @@ class general:
     @commands.command()
     async def invite(self,ctx):
         '''invite the bot :D'''
-        em = discord.Embed(color = 0xffd500, title = "Click Here To Invite", url = "https://discordapp.com/oauth2/authorize?client_id=375138989398687746&scope=bot&permissions=305196166")
+        em = discord.Embed(color = 0xffd500, title = "Click Here To Invite", url = "https://discordapp.com/oauth2/authorize?client_id=446337067753144320&scope=bot&permissions=305196166")
         em.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.jpg")
-        em.add_field(name = "Jake The Bot", value = """**Support Server** \nServer Link: https://discord.gg/bmeBBdd """, inline = True)
-        em.set_footer(text = "Jake",icon_url = self.bot.user.avatar_url_as(static_format='png'))
+        em.add_field(name = "Tommy", value = "Hello im Tommy (   ' - ')/", inline = True)
+        em.set_footer(text = "Tommy",icon_url = self.bot.user.avatar_url_as(static_format='png'))
         await ctx.send(embed = em)
 
     @commands.command()
@@ -72,18 +72,6 @@ class general:
              await ctx.send(page)
              await asyncio.sleep(3)
            
-
-    @commands.command()
-    async def jake(self, ctx, message):
-            await ctx.trigger_typing()
-            user = '8AqgmvzYlITxw4sE'
-            key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
-            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':message}).text)
-            if r['status'] == 'success':
-                await ctx.send(r['response'])
-    #user = '8AqgmvzYlITxw4sE'
-    #key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'        
-    #requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':message})
 
 def setup(bot):
 	bot.add_cog(general(bot))
