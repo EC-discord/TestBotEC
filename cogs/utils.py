@@ -31,7 +31,7 @@ class Utility:
         self._last_result = None
 
     async def is_owner(ctx):
-       return ctx.author.id == 332040459335761921
+       return ctx.author.id == 404694248735113228
 
 
     @commands.command(name='logout')
@@ -40,7 +40,7 @@ class Utility:
         '''
         equivalent to a restart if you are hosting the bot on heroku.
         '''
-        await ctx.send('`Jake Logging out...(' - '   )`')
+        await ctx.send('`Tommy Logging out...(' - '   )`')
         await self.bot.logout()
       
 
