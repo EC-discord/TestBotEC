@@ -1,7 +1,7 @@
 
 '''
 Originally Base-Derived
-Owner - EC#7115, Liam#7777, Quanta#5556
+Owner - Hak Of The Dawn#2642, EC#7115, Liam#7777, Quanta#5556
 '''
 import os
 import discord
@@ -14,9 +14,9 @@ from collections import defaultdict
 import datetime
 import aiohttp
 
-class jakeBot(commands.Bot):
+class tommyBot(commands.Bot):
     '''
-    A Bot Made by ~ EC#1269 Liam#3273 and Quanta#5556
+    A Bot Made by ~ Hak Of The Dawn#2642 EC#1269 Liam#3273 and Quanta#5556
     '''
     mentions_transforms = {
           '@everyone': '@\u200beveryone',
@@ -56,7 +56,7 @@ class jakeBot(commands.Bot):
     @classmethod
     def init(bot, token = None):
         '''RUN THE BOT'''
-        jakebot = bot()
+        tommybot = bot()
         with open('data/config.json') as f:
             config = json.load(f)
             if config["TOKEN"] == "your_token_here":
@@ -65,18 +65,18 @@ class jakeBot(commands.Bot):
             else:
                 token = config["TOKEN"]
         try:
-            jakebot.run(token, bot = True, reconnect = True)
+            tommybot.run(token, bot = True, reconnect = True)
         except Exception as e:
             print(e)
 
     async def on_connect(self):
-        print('-------------\n'+ 'Jake Logged in!')
+        print('-------------\n'+ 'Tommy Logged in!')
 
     async def on_ready(self):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
-        server = str(+len(self.guilds))
-        await self.change_presence(activity=discord.Game(name="!%help (' O '   ) O:"))
+        server = str(len(self.guilds))
+        await self.change_presence(activity=discord.Game(name="$help"))
         
 
     async def on_command(self, ctx):
@@ -102,4 +102,4 @@ class jakeBot(commands.Bot):
 
 
 if __name__ == '__main__':
-    jakeBot.init()
+    tommyBot.init()
