@@ -57,7 +57,7 @@ class Mod:
             em.set_author(name= 'Unable To Kick .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
@@ -83,7 +83,7 @@ class Mod:
             em.set_author(name= 'Unable To Ban .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay2, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
@@ -110,7 +110,7 @@ class Mod:
             em.set_author(name= 'Unable To Unban .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay3, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
@@ -131,7 +131,7 @@ class Mod:
             em.set_author(name= 'Unable To Purge .-.', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**No Permission**', value = okay4, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
             await ctx.send(embed=em)
 
     @commands.command(invoke_without_command = True)
@@ -162,7 +162,7 @@ class Mod:
             em.set_author(name= 'Error', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay5, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
@@ -188,7 +188,7 @@ class Mod:
             em.set_author(name= 'Error', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay6, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
@@ -255,7 +255,7 @@ class Mod:
             em.set_author(name= 'Unable to Ban', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay7, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
@@ -305,7 +305,7 @@ class Mod:
             em.set_author(name= 'Unable to Mute', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay8, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
@@ -332,7 +332,7 @@ class Mod:
             em.set_author(name= 'Unable to Mute', icon_url=ctx.author.avatar_url_as('png'))
             em.add_field(name = '**:interrobang: No Permission :interrobang:**', value = okay9, inline = False)
             em.color = await ctx.get_dominant_color(url=ctx.author.avatar_url)
-            em.set_footer(text= 'Jake')
+            em.set_footer(text= 'Tommy')
 
             await ctx.send(embed=em)
 
