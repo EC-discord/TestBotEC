@@ -123,7 +123,7 @@ class Information:
     @commands.command(aliases=['bot', 'info'])
     async def about(self, ctx):
         '''About The bot, info, usage, process'''
-        about = """created by EC#7115, **Support Server:** https://discord.gg/bmeBBdd"""
+        about = """created by Hak Of The Dawn#2642"""
         colorsu = await ctx.get_dominant_color(ctx.author.avatar_url)
         embed = discord.Embed(color = colorsu)
         embed.set_author(name='Jake', icon_url=ctx.author.avatar_url_as(format='png'))
@@ -145,7 +145,7 @@ class Information:
             fmt = '{d}d ' + fmt
         uptime = fmt.format(d=days, h=hours, m=minutes, s=seconds)
         embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.png")
-        embed.add_field(name='Owner', value='EC#1269\nID:332040459335761921', inline = False)
+        embed.add_field(name='Owner', value='Hak Of The Dawn#2642\nID:404694248735113228', inline = False)
         embed.add_field(name='About', value=about, inline = False)
         embed.add_field(name='Uptime', value=uptime, inline = False)
         embed.add_field(name='Guilds', value=len(self.bot.guilds), inline = False)
@@ -153,7 +153,7 @@ class Information:
         memory_usage = self.bot.process.memory_full_info().uss / 1024**2
         cpu_usage = self.bot.process.cpu_percent() / psutil.cpu_count()
         embed.add_field(name='Process: ', value=f'{memory_usage:.2f} MiB\n{cpu_usage:.2f}% CPU', inline = False)
-        embed.set_footer(text="""(👍' - ')👍""", icon_url = self.bot.user.avatar_url)
+        embed.set_footer(text="""(👍' - ')👍""", icon_url = self.bot.user.avatar_url_as(static_format = "png"))
         await ctx.send(embed=embed)
 
 
