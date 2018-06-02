@@ -93,7 +93,6 @@ class Misc:
          async with ctx.session.get(emo.url) as resp:
              image = await resp.read()
          with io.BytesIO(image) as file:
-             await ctx.message.delete()
              await ctx.send(file=discord.File(file, 'emote.png'))
         
      @commands.command()
