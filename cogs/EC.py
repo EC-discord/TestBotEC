@@ -69,9 +69,12 @@ class EC:
          await ctx.send("\\\(  . - .  )/ i am noble!")
           
      @commands.command()
-     async def cookie(self, ctx):
+     async def cookie(self, ctx, user : discord.Member = None):
          """(  ^ - ^)-🍪"""
-         await ctx.send("(  ^ - ^)-🍪")
+         if user is not None:
+             await ctx.send(f"(  ^ - ^)-🍪 {user.mention}")
+         else:
+             await ctx.send("(  ^ - ^)-🍪")
           
      @commands.command()
      async def cat(self, ctx):
