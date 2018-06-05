@@ -73,7 +73,7 @@ class Misc:
          await ctx.send(lel)
 
      @commands.command()
-     async def emoji(ctx, emoji: str):
+     async def emoji(self, ctx, *,emoji: str):
          """send emoji pic"""
          emoji = emoji.split(":")
          emoji_check = self.check_emojis(ctx.bot.emojis, emoji)
