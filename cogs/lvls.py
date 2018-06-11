@@ -13,7 +13,7 @@ class levels:
             self.lvls[id] = {'name' : message.author.name, 'xp' : 0, 'level' : {'lvlNo' : 1, 'totalxp' : 100}}
         else:
             self.lvls[id]['xp'] += random.randint(10, 50)
-            if self.lvls[id]['xp'] >= self.lvls[id]['level']['totalexp']:
+            if self.lvls[id]['xp'] >= self.lvls[id]['level']['totalxp']:
                 self.lvls[id]['xp'] = 0
                 self.lvls[id]['level']['lvlNo'] += 1
                 self.lvls[id]['level']['totalxp'] += self.lvls[id]['level']['totalxp']/2
