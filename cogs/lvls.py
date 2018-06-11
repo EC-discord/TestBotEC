@@ -4,7 +4,7 @@ import random
 import json
 
 class levels:
-    def __init__:
+    def __init__(self, bot):
         self.bot = bot
         self.lvls = {}
     async def on_message(self, message):
