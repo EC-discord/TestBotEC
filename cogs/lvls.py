@@ -24,3 +24,4 @@ class levels:
         file.close()
         
 def setup(bot):
+    bot.add_cog(lvls(bot))
