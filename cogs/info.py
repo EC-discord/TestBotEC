@@ -6,7 +6,6 @@ import datetime
 import asyncio
 import psutil
 import random
-import pip
 import os
 import io
 import json
