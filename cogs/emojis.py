@@ -34,7 +34,7 @@ class emojis:
     
     @commands.command()
     async def emojiurl(self, ctx, emoji: discord.Emoji):
-        for guild in bot.guilds:
+        for guild in self.bot.guilds:
             emote = discord.utils.get(guild.emojis, name = f"{emoji.name}")
             if emoji is not None:
                 break
