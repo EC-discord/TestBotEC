@@ -36,6 +36,8 @@ class emojis:
     async def emojiurl(self, ctx, emoji: discord.Emoji):
         for guild in bot.guilds:
             emote = discord.utils.get(guild.emojis, name = f"{emoji.name}")
+            if emoji is not None:
+                break
         await ctx.send(emote.url)
           
 def setup(bot):
