@@ -34,9 +34,9 @@ class emojis:
     
     @commands.command()
     async def emojiurl(self, ctx, emoji: discord.Emoji):
-        for guild in self.bot.guilds:
-            emoji = discord.utils.get(guild.emojis, name = f"{emoji.name}")
-        await ctx.send(emoji.url)
+        for guild in bot.guilds:
+            emote = discord.utils.get(guild.emojis, name = f"{emoji.name}")
+        await ctx.send(emote.url)
           
 def setup(bot):
     bot.add_cog(emojis(bot))
