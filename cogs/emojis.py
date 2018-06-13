@@ -34,6 +34,7 @@ class emojis:
     
     @commands.command()
     async def emojiurl(self, ctx, emoji: discord.Emoji):
+        print(emoji)
         id = emoji.id
         await ctx.send(f"https://cdn.discordapp.com/emojis/{id}.png?v=1")
           
