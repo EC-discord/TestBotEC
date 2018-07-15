@@ -46,7 +46,7 @@ class jakeBot(commands.Bot):
     async def get_pre(bot, message):
         '''GET THE PREFIX'''
         with open('data/config.json') as f:
-            prefix = bot.mention or json.load(f).get('PREFIX')
+            prefix = "<@467973617536335872>" or json.load(f).get('PREFIX')
         return os.environ.get('PREFIX') or prefix or 'r. '
 
     def restart(self):
@@ -76,7 +76,7 @@ class jakeBot(commands.Bot):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
-        await self.change_presence(activity=discord.Game(name="!%help (' O '   ) O:"))
+        await self.change_presence(activity=discord.Game(name="jake help (' O '   ) O:"))
         
 
     async def on_command(self, ctx):
