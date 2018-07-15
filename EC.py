@@ -46,7 +46,7 @@ class jakeBot(commands.Bot):
     async def get_pre(bot, message):
         '''GET THE PREFIX'''
         with open('data/config.json') as f:
-            prefix = "<@467973617536335872>" or json.load(f).get('PREFIX')
+            prefix = json.load(f).get('PREFIX') or "<@467973617536335872> "
         return os.environ.get('PREFIX') or prefix or 'r. '
 
     def restart(self):
