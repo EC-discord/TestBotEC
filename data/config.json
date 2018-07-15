@@ -1,6 +1,6 @@
 
 {
-    "PREFIX": ["jake ", self.bot.mention],
+    "PREFIX": ["jake "],
     "TOKEN": "your_token_here"
 
 }
