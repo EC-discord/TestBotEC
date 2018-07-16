@@ -13,6 +13,7 @@ import json
 from collections import defaultdict
 import datetime
 import aiohttp
+import requests
 
 class jakeBot(commands.Bot):
     '''
@@ -99,6 +100,19 @@ class jakeBot(commands.Bot):
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
     
+    #client = discord.Client()
+    user = '8AqgmvzYlITxw4sE'
+    key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
+
+    async def on_message(message):
+        if not message.author.bot and (message.server == None or self.bot.user in message.mentions):
+            await self.bot.send_typing(message.channel)
+            txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
+            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'jake', 'text':txt}).text)
+            if r['status'] == 'success':
+                await self.bot.send_message(message.channel, r['response'] )
+
+    requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'jake'})
 
 
 if __name__ == '__main__':
