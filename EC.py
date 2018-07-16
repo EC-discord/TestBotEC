@@ -30,11 +30,7 @@ class jakeBot(commands.Bot):
         self.session = aiohttp.ClientSession(loop = self.loop)
         self._extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
         self.process = psutil.Process()
-        #self.commands_used = defaultdict(int)
         self.load_extensions()
-        self.client = discord.Client()
-        self.user = '8AqgmvzYlITxw4sE'
-        self.key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
    
     def load_extensions(self, cogs = None, path = 'cogs.'):
         '''Loading the Extentions ;)'''
@@ -107,15 +103,6 @@ class jakeBot(commands.Bot):
     #user = '8AqgmvzYlITxw4sE'
     #key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
-    async def on_message(self, message):
-        if not message.author.bot and self.client.user in message.mentions:
-            await self.client.send_typing(message.channel)
-            txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
-            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':self.user, 'key':self.key, 'nick':'jake', 'text':txt}).text)
-            if r['status'] == 'success':
-                await self.client.send_message(message.channel, r['response'] )
-
-    requests.post('https://cleverbot.io/1.0/create', json={'user':self.user, 'key':self.key, 'nick':'jake'})
 
 
 if __name__ == '__main__':
