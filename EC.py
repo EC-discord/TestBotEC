@@ -32,6 +32,9 @@ class jakeBot(commands.Bot):
         self.process = psutil.Process()
         #self.commands_used = defaultdict(int)
         self.load_extensions()
+        self.client = discord.Client()
+        self.user = '8AqgmvzYlITxw4sE'
+        self.key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
    
     def load_extensions(self, cogs = None, path = 'cogs.'):
         '''Loading the Extentions ;)'''
@@ -108,12 +111,12 @@ class jakeBot(commands.Bot):
         client = discord.Client()
         user = '8AqgmvzYlITxw4sE'
         key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
-        if not message.author.bot and client.user in message.mentions:
-            await client.send_typing(message.channel)
+        if not message.author.bot and self.client.user in message.mentions:
+            await self.client.send_typing(message.channel)
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
             r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'jake', 'text':txt}).text)
             if r['status'] == 'success':
-                await client.send_message(message.channel, r['response'] )
+                await self.client.send_message(message.channel, r['response'] )
 
     requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'jake'})
 
