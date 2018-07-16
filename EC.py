@@ -30,7 +30,7 @@ class jakeBot(commands.Bot):
         self.session = aiohttp.ClientSession(loop = self.loop)
         self._extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
         self.process = psutil.Process()
-        self.commands_used = defaultdict(int)
+        #self.commands_used = defaultdict(int)
         self.load_extensions()
    
     def load_extensions(self, cogs = None, path = 'cogs.'):
@@ -80,9 +80,9 @@ class jakeBot(commands.Bot):
         await self.change_presence(activity=discord.Game(name="jake help (' O '   ) O:"))
         
 
-    async def on_command(self, ctx):
-        cmd = ctx.command.qualified_name.replace(' ', '_')
-        self.commands_used[cmd] +=1
+    #async def on_command(self, ctx):
+        #cmd = ctx.command.qualified_name.replace(' ', '_')
+        #self.commands_used[cmd] +=1
 
     async def process_commands(self, message):
         '''Utilize the CustomContext subclass'''
@@ -104,7 +104,7 @@ class jakeBot(commands.Bot):
     user = '8AqgmvzYlITxw4sE'
     key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
-    async def on_message(message):
+    async def on_message(self, message):
         if not message.author.bot and (message.server == None or self.bot.user in message.mentions):
             await self.bot.send_typing(message.channel)
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
