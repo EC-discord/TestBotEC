@@ -100,17 +100,17 @@ class jakeBot(commands.Bot):
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
     
-    #client = discord.Client()
+    client = discord.Client()
     user = '8AqgmvzYlITxw4sE'
     key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
 
     async def on_message(self, message):
-        if not message.author.bot and bot.user in message.mentions:
-            await bot.send_typing(message.channel)
+        if not message.author.bot and client.user in message.mentions:
+            await client.send_typing(message.channel)
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
             r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'jake', 'text':txt}).text)
             if r['status'] == 'success':
-                await bot.send_message(message.channel, r['response'] )
+                await client.send_message(message.channel, r['response'] )
 
     requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'jake'})
 
