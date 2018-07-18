@@ -31,7 +31,33 @@ class Utility:
         self._last_result = None
 
     async def is_owner(ctx):
-       return ctx.author.id == 332040459335761921
+       return ctx.author.id == 453941160612986880
+
+    @commands.command()
+    @commands.check(is_owner)
+    async def cpres(self, ctx, status : str, Type:str = None, *, message:str = None):
+        '''Sets a custom presence, the Type argument can be "playing", "streaming", "listeningto" or "watching"
+        status can be "online", "dnd", "idle", "invisible"
+        Example : (prefix)cpres idle watching a movie'''
+        types = {"playing" : "Playing", "streaming" : "Streaming", "listeningto" : "Listening to", "watching" : "Watching"}
+        stats = {"online" : discord.Status.online, "dnd" : discord.Status.dnd, "idle" : discord.Status.idle, "invisible" : discord.Status.invisible}
+        em = discord.Embed(color=0x6ed457, title="Presence")
+        if message is None:
+            await self.bot.change_presence(status=discord.Status.online, activity= message, afk = True)
+        else:
+            if Type == "playing":
+                await self.bot.change_presence(status=stats[status], activity=discord.Game(name=message), afk = True)
+            elif Type == "streaming":
+                await self.bot.change_presence(status=stats[status], activity=discord.Streaming(name=message, url=f'www.twitch.tv/{message}'), afk = True)
+            elif Type == "listeningto":
+                await self.bot.change_presence(status=stats[status], activity=discord.Activity(type=discord.ActivityType.listening, name=message), afk = True)
+            elif Type == "watching":
+                await self.bot.change_presence(status=stats[status], activity=discord.Activity(type=discord.ActivityType.watching, name=message), afk = True)
+            em.description = f"Presence : {types[Type]} {message}"
+            if ctx.author.guild_permissions.embed_links:
+                await ctx.send(embed = em)
+            else:
+                await ctx.send(f"Presence : {types[Type]} {message}")
 
 
     @commands.command(name='logout')
