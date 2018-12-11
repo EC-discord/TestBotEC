@@ -91,19 +91,15 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
 
     async def on_message(self, message):
-        '''Ignore commands by self'''
+        if message.author.id == 500937654381314048:
+            if message.content.lower() == "lewl" or "xd":
+                await message.delete()
         if message.author.id == self.user.id:
             return
         await self.process_commands(message)
 
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
-    
-    #client = discord.Client()
-    #user = '8AqgmvzYlITxw4sE'
-    #key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
-
-
 
 if __name__ == '__main__':
     jakeBot.init()
