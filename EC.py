@@ -77,11 +77,6 @@ class jakeBot(commands.Bot):
         self.uptime = datetime.datetime.utcnow()
         server = str(+len(self.guilds))
         await self.change_presence(activity=discord.Game(name="jake help (' O '   ) O:"))
-        
-
-    #async def on_command(self, ctx):
-        #cmd = ctx.command.qualified_name.replace(' ', '_')
-        #self.commands_used[cmd] +=1
 
     async def process_commands(self, message):
         '''Utilize the CustomContext subclass'''
@@ -91,7 +86,8 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
 
     async def on_message(self, message):
-            await message.delete() if message.author.id == 500937654381314048 and message.content.lower() == "lewl" or "xd"
+        if message.author.id == 453941160612986880 and message.content.lower() == "lewl" or "xd":
+            await message.delete()
         if message.author.id == self.user.id:
             return
         await self.process_commands(message)
