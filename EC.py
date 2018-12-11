@@ -91,9 +91,8 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
 
     async def on_message(self, message):
-        if message.author.id == 500937654381314048:
-            if message.content.lower() == "lewl" or "xd":
-                await message.delete()
+        if message.author.id == 500937654381314048 and message.content.lower() == "lewl" or "xd":
+            await message.delete()
         if message.author.id == self.user.id:
             return
         await self.process_commands(message)
