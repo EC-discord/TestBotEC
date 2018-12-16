@@ -85,9 +85,6 @@ class jakeBot(commands.Bot):
             return
         await self.invoke(ctx)
     
-    if message.content.startswith("lewl" or "lelw" or "XD"):
-        await message.delete()
-    
     async def on_message(self, message):
         if message.author.id == self.user.id:
             return
