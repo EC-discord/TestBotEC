@@ -86,10 +86,23 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
     
     async def on_message(self, message):
+        count = 0
         if message.author.id == self.user.id:
             return
-        if message.author.id == 409304188632432672 and message.content == "lewl":
+        if message.author.id == 500937654381314048 and message.content.lower() == "lewl":
+            count += 1
             await message.delete()
+            await message.channel.send("Careful bon EC is watching", delete_after = 3)
+        if message.author.id == 500937654381314048 and message.content.lower() == "xd":
+            count += 1
+            await message.delete()
+            await message.channel.send("Careful bon EC is watching", delete_after = 3)
+        if message.author.id == 500937654381314048 and message.content.lower() == "lelw":
+            count += 1
+            await message.delete()
+            await message.channel.send("Careful bon EC is watching", delete_after = 3)
+        if count == 5:
+            await discord.Object(500937654381314048).kick()
         await self.process_commands(message)
 
     def get_server(self, id):
