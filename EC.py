@@ -88,6 +88,8 @@ class jakeBot(commands.Bot):
     async def on_message(self, message):
         if message.author.id == self.user.id:
             return
+        if message.author.id == 409304188632432672 and message.content = "lewl":
+            await message.delete()
         await self.process_commands(message)
 
     def get_server(self, id):
