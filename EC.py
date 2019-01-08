@@ -1,7 +1,7 @@
 
 '''
 Originally Base-Derived
-Owner - EC#7115, Liam#7777, Quanta#5556
+Owner - Mirai#9999, Denka#9999, Quanta#5556
 '''
 import os
 import discord
@@ -17,7 +17,7 @@ import requests
 
 class jakeBot(commands.Bot):
     '''
-    A Bot Made by ~ EC#1269 Liam#3273 and Quanta#5556
+    A Bot Made by ~ Mirai#9999 Denka#9999 and Quanta#5556
     '''
     mentions_transforms = {
           '@everyone': '@\u200beveryone',
@@ -86,7 +86,7 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
     
     async def on_message(self, message):
-        guild = bot.get_server(485764935222296586)
+        guild = self.get_server(485764935222296586)
         log_channel = guild.get_channel(532148888300421127)
         if message.channel.id == 485764935222296588:
             async with bot.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
