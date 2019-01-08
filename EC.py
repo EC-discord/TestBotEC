@@ -86,7 +86,7 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
     
     async def on_message(self, message):
-        guild = bot.get_guild(485764935222296586)
+        guild = self.session.get_guild(485764935222296586)
         log_channel = guild.get_channel(532148888300421127)
         if message.channel.id == 485764935222296588:
             async with bot.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
