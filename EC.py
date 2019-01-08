@@ -93,7 +93,7 @@ class jakeBot(commands.Bot):
             async with self.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
                 image = await resp.read()
             wb = await log_channel.create_webhook(name = name, avatar = image)
-            await wb.send(message.content)
+            await wb.send(`message.content`)
             await wb.delete()
         await self.process_commands(message)
 
