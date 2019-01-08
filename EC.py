@@ -88,10 +88,11 @@ class jakeBot(commands.Bot):
     async def on_message(self, message):
         guild = self.get_server(485764935222296586)
         log_channel = guild.get_channel(532148888300421127)
+        name = message.author.nick or message.author.name
         if message.channel.id == 485764935222296588:
             async with self.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
                 image = await resp.read()
-            wb = await log_channel.create_webhook(name = message.author.nick, avatar = image)
+            wb = await log_channel.create_webhook(name = name, avatar = image)
             await wb.send(message.content)
             await wb.delete()
         await self.process_commands(message)
