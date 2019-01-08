@@ -89,7 +89,7 @@ class jakeBot(commands.Bot):
         guild = self.get_server(485764935222296586)
         log_channel = guild.get_channel(532148888300421127)
         if message.channel.id == 485764935222296588:
-            async with bot.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
+            async with self.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
                 image = await resp.read()
             wb = await log_channel.create_webhook(name = message.author.nick, image = image)
             await wb.send(message.content)
