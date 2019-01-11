@@ -86,7 +86,7 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
     
     async def on_message(self, message):
-        guild = self.get_server(485764935222296586)
+        """guild = self.get_server(485764935222296586)
         log_channel = guild.get_channel(532148888300421127)
         name = message.author.nick or message.author.name
         if message.channel.id == 485764935222296588:
@@ -94,7 +94,7 @@ class jakeBot(commands.Bot):
                 image = await resp.read()
             wb = await log_channel.create_webhook(name = name, avatar = image)
             await wb.send(`message.content`)
-            await wb.delete()
+            await wb.delete()"""
         await self.process_commands(message)
 
     def get_server(self, id):
