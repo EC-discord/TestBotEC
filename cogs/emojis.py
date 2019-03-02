@@ -3,7 +3,7 @@ import asyncio
 from discord.ext import commands
 from aiohttp import ClientSession
 
-class emojis:
+class emojis(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
