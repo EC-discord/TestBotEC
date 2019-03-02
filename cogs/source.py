@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import inspect
 
-class source:
+class source(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
