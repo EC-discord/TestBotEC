@@ -30,6 +30,7 @@ class emojis:
         for emoji in self.bot.emojis:
           if emoji_name == emoji.name:
             await ctx.send(emoji)
+        await ctx.message.delete()
     
     @commands.command()
     async def emojiurl(self, ctx, emoji: discord.Emoji):
