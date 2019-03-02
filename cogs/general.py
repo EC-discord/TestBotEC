@@ -9,7 +9,7 @@ from ext.paginator import Paginator
 import requests
 
 
-class general:
+class general(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 	
