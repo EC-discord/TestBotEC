@@ -10,7 +10,7 @@ import io
 import json
 
 
-class Information(commanda.Cog):
+class Information(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
