@@ -2,7 +2,7 @@ import discord
 import asyncio
 from discord.ext import commands
 
-class BitwiseOperators:
+class BitwiseOperators(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
