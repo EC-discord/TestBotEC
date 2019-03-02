@@ -10,7 +10,7 @@ import io
 import json
 
 
-class Information:
+class Information(commanda.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -143,7 +143,7 @@ class Information:
             fmt = '{d}d ' + fmt
         uptime = fmt.format(d=days, h=hours, m=minutes, s=seconds)
         embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.png")
-        embed.add_field(name='Owner', value='EC#1269\nID:332040459335761921', inline = False)
+        embed.add_field(name='Owner', value='Mirai#6538', inline = False)
         embed.add_field(name='About', value=about, inline = False)
         embed.add_field(name='Uptime', value=uptime, inline = False)
         embed.add_field(name='Guilds', value=len(self.bot.guilds), inline = False)
