@@ -19,19 +19,9 @@ class EC:
          await ctx.send('(╯°□°）╯︵ ┻━┻')
 
      @commands.command()
-     async def cool(self, ctx):
-         """(  * O *  )"""
-         await ctx.send("(  * O *  )")
-
-     @commands.command()
      async def lenny(self, ctx):
          """( ͡° ͜ʖ ͡°)"""
          await ctx.send("( ͡° ͜ʖ ͡°)")
-    
-     @commands.command()
-     async def gib(self, ctx):
-         """(づ｡◕‿‿◕｡)づ"""
-         await ctx.send("(づ｡◕‿‿◕｡)づ")
      
      @commands.command()
      async def kflip(self, ctx):
@@ -42,11 +32,6 @@ class EC:
      async def thumbs(self, ctx):
          """(👍' - ')👍"""
          await ctx.send("(👍' - ')👍")
-     
-     @commands.command()
-     async def warp(self, ctx):
-         """(   ' - ')__(warp drive)"""
-         await ctx.send("(   ' - ')__(warp drive)")
     
      @commands.command(aliases = ["bye"])
      async def hi(self, ctx):
@@ -62,11 +47,6 @@ class EC:
      async def wow(self, ctx):
          """(   ' O ')"""
          await ctx.send("(   ' O ')")
-     
-     @commands.command()
-     async def noble(self, ctx):
-         """\\(  . - .  )/ i am noble!"""
-         await ctx.send("\\\(  . - .  )/ i am noble!")
           
      @commands.command()
      async def cookie(self, ctx, user : discord.Member = None):
@@ -81,11 +61,6 @@ class EC:
          await ctx.send("""{ \  / }
 ( ^ - ^ )
 ( u   u )～""")
-     
-     @commands.command()
-     async def chaos(self, ctx):
-         """Everything will fall into CHAOS"""
-         await ctx.send("Everything will fall into CHAOS")
      
      @commands.command()
      async def pew(self, ctx):
