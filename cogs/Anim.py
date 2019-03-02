@@ -58,31 +58,7 @@ class Anim:
              await asyncio.sleep(1)
      
      @commands.command()
-     async def dance(self, ctx):
-         msg = await ctx.send(content="\\\(' - '   )\\")
-         await asyncio.sleep(1)
-         await msg.edit(content="/(   ' - ')/")
-         await asyncio.sleep(1)
-         for i in range(1, 10, 1):
-             await msg.edit(content="\\\(' - '   )\\")
-             await asyncio.sleep(1)
-             await msg.edit(content="/(   ' - ')/")
-             await asyncio.sleep(1)
-     
-     @commands.command()
-     async def dance2(self, ctx):
-         msg = await ctx.send(content="\\\*(' - '   )\\*")
-         await asyncio.sleep(1)
-         await msg.edit(content="/*(   ' - ')*/")
-         await asyncio.sleep(1)
-         for i in range(1, 10, 1):
-             await msg.edit(content="\\\*(' - '   )*\\")
-             await asyncio.sleep(1)
-             await msg.edit(content="/*(   ' - ')*/")
-             await asyncio.sleep(1)
-     
-     @commands.command()
-     async def virus(self, ctx, member : discord.Member = None, *, virus : str):
+     async def virus(self, ctx, member : discord.Member = None, *, virus : str = "trojan horse"):
          wheelList = ['/', '-', '\\', '|']
          wheelIter = iter(wheelList)
          msg = await ctx.send('`Preparing virus`')
@@ -100,11 +76,11 @@ class Anim:
          await asyncio.sleep(1)  
          await msg.edit(content=f"`Injecting virus... -`")
          await asyncio.sleep(1)
-         await msg.edit(content=f"`Successfully Injected {virus}-virus.exe into  `" + member.mention)
+         await msg.edit(content=f"`Successfully Injected {virus}-virus.exe into {member.name}`")
 
      async def boom(self, ctx):
          for c in range(5, -1, -1):
-             await message.edit(content="`THIS MESSAGE WILL SELF DESTRUCT IN %s`" % c)
+             await message.edit(content=f"`THIS MESSAGE WILL SELF DESTRUCT IN {c}`")
              await asyncio.sleep(1)
          await message.edit(content="💣")
          await asyncio.sleep(1)
