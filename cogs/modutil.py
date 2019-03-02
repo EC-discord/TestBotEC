@@ -7,8 +7,7 @@ import random
 import os
 import io
 
-class Mod:
-
+class Mod(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
