@@ -20,7 +20,7 @@ import io
 import os
 import random
 
-class Utility:
+class Utility(commands.Cog):
     '''Useful commands to make your life easier'''
     def __init__(self, bot):
         self.bot = bot
