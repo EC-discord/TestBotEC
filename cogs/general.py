@@ -41,12 +41,11 @@ class general(commands.Cog):
      
     @commands.command()
     async def getems(self, ctx):
-         l = []
-         for e in ctx.guild.emojis:
-             name = e.name+ " " + "{}".format(e)
-             l.append (name)
-         emo = ' '.join(l)
-         await ctx.send(emo)
+         liststatic = [e for e in ctx.guild.emojis if not emoji.animated]
+         listanimated = [e for e in ctx.guild.empjis if emoji.animated]
+         notanim = "".join(liststatic)
+         anim = "".join(listanimated)
+         await ctx.send(f"**Static emotes:**\n{notanim}\n**Animated emotes:**\n{anim}")
 
 
     @commands.command()
@@ -62,7 +61,7 @@ class general(commands.Cog):
              while len(all_emoji_names) > 2000:
                  space_index = all_emoji_names[1500:].find(' ') + 1500
                  line_list.append(all_emoji_names[:space_index])
-                 all_emoji_names = all_emoji_names[spaceindex:]
+                 all_emoji_names = all_emoji_names[space_index:]
              else:
                  line_list.append(all_emoji_names)
 
@@ -71,19 +70,6 @@ class general(commands.Cog):
          for page in paginator.pages:
              await ctx.send(page)
              await asyncio.sleep(3)
-           
-
-    @commands.command()
-    async def jake(self, ctx, message):
-            await ctx.trigger_typing()
-            user = '8AqgmvzYlITxw4sE'
-            key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'
-            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':message}).text)
-            if r['status'] == 'success':
-                await ctx.send(r['response'])
-    #user = '8AqgmvzYlITxw4sE'
-    #key = '1c81sJRPjplO32pigBVD6OjVYkGWa8gY'        
-    #requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'Jake', 'text':message})
 
 def setup(bot):
 	bot.add_cog(general(bot))
