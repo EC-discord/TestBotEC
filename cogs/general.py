@@ -42,8 +42,10 @@ class general(commands.Cog):
          listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
          notanim = " ".join(liststatic)
          anim = " ".join(listanimated)
-         await ctx.send(f"**Static emotes:**\n{notanim}")
-         await ctx.send(f"**Animated emotes:**\n{anim}")
+         await ctx.send(f"**Static emotes:**")
+         await ctx.send(f"{notanim}")
+         await ctx.send(f"**Animated emotes:**")
+         await ctx.send(f"{anim}")
 
 
     @commands.command()
