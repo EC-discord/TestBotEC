@@ -12,14 +12,13 @@ import requests
 class general(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-	
         
     @commands.command()
     async def invite(self,ctx):
         '''invite the bot :D'''
         em = discord.Embed(color = 0xffd500, title = "Click Here To Invite", url = "https://discordapp.com/oauth2/authorize?client_id=467973617536335872&scope=bot&permissions=305196166")
         em.set_thumbnail(url = "https://cdn.discordapp.com/attachments/274387797140570112/409323858437472257/image.jpg")
-        em.add_field(name = "Jake The Bot", value = "A bot made by EC", inline = True)
+        em.add_field(name = "Jake The Bot", value = "A bot made by Mirai", inline = True)
         em.set_footer(text = "Jake",icon_url = self.bot.user.avatar_url_as(static_format='png'))
         await ctx.send(embed = em)
 
@@ -39,8 +38,8 @@ class general(commands.Cog):
      
     @commands.command()
     async def getems(self, ctx):
-         liststatic = [e for e in ctx.guild.emojis if not emoji.animated]
-         listanimated = [e for e in ctx.guild.empjis if emoji.animated]
+         liststatic = [e for e in ctx.guild.emojis if not e.animated]
+         listanimated = [e for e in ctx.guild.emojis if e.animated]
          notanim = "".join(liststatic)
          anim = "".join(listanimated)
          await ctx.send(f"**Static emotes:**\n{notanim}\n**Animated emotes:**\n{anim}")
