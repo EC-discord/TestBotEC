@@ -40,8 +40,8 @@ class general(commands.Cog):
     async def getems(self, ctx):
          liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
          listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
-         notanim = "".join(liststatic)
-         anim = "".join(listanimated)
+         notanim = " ".join(liststatic)
+         anim = " ".join(listanimated)
          await ctx.send(f"**Static emotes:**\n{notanim}")
          await ctx.send(f"**Animated emotes:**\n{anim}")
 
@@ -52,9 +52,8 @@ class general(commands.Cog):
          paginator = Paginator()
          for server in self.bot.guilds:
              paginator.addLine(f'{server.name}:')
-             all_emoji_names_list = ["<:" + e.name + ':' + str(e.id) + ">" for e in server.emojis]
+             all_emoji_names_list = [f"{e}" for e in server.emojis]
              all_emoji_names = ' '.join(all_emoji_names_list)
-
              line_list = []
              while len(all_emoji_names) > 2000:
                  space_index = all_emoji_names[1500:].find(' ') + 1500
