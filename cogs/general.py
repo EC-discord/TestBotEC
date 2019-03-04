@@ -24,11 +24,9 @@ class general(commands.Cog):
         await ctx.send(embed = em)
 
     @commands.command()
-    async def say(self, ctx, *, args=None):
-        if args is None:
-            await ctx.send('Type something O:')
-        else:
-            await ctx.send(args)
+    async def say(self, ctx, *, text = None):
+        await ctx.send(text)
+        await ctx.message.delete()
 	
     @commands.command()
     async def emsay(self, ctx, *, args = None):
@@ -69,7 +67,7 @@ class general(commands.Cog):
                  paginator.addLine(line)
          for page in paginator.pages:
              await ctx.send(page)
-             await asyncio.sleep(3)
+             await asyncio.sleep(1)
 
 def setup(bot):
 	bot.add_cog(general(bot))
