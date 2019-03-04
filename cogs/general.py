@@ -38,8 +38,8 @@ class general(commands.Cog):
      
     @commands.command()
     async def getems(self, ctx):
-         liststatic = [f"e" for e in ctx.guild.emojis if not e.animated]
-         listanimated = [f"e" for e in ctx.guild.emojis if e.animated]
+         liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
+         listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
          notanim = "".join(liststatic)
          anim = "".join(listanimated)
          await ctx.send(f"**Static emotes:**\n{notanim}\n**Animated emotes:**\n{anim}")
