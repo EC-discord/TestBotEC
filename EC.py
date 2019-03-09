@@ -1,7 +1,7 @@
 
 '''
 Originally Base-Derived
-Owner - Mirai#6898, Denka#9999, Quanta#5556
+Owner - Mirai#6898
 '''
 import os
 import discord
@@ -17,7 +17,7 @@ import requests
 
 class jakeBot(commands.Bot):
     '''
-    A Bot Made by ~ Mirai#6898 Denka#9999 and Quanta#5556
+    A Bot Made by ~ Mirai#6898 Denka#8264 and Quanta#5556
     '''
     mentions_transforms = {
           '@everyone': '@\u200beveryone',
@@ -97,10 +97,6 @@ class jakeBot(commands.Bot):
       
     async def on_message_edit(self, before, after):
         await self.process_command(after)
-        
-    async def on_typing(self, channel, user, when):
-        if user.name == "Mirai":
-            await channel.send(content = "Mirai stop typing", delete_after = 2)
 
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
