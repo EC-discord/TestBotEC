@@ -26,28 +26,6 @@ class Misc(commands.Cog):
      def __init__(self, bot):
          self.bot = bot
      
-     @commands.command(aliases=['bn'])
-     async def binary(self, ctx, number:int = None):
-         '''converts the given number into binary'''
-         if number is None:
-             await ctx.send('Enter a number :D')
-         else:
-             num = bin(number)[2:]
-             if ctx.author.guild_permissions.embed_links == True:
-                 em = discord.Embed(color = 0xffd500)
-                 em.description = num
-                 await ctx.send(embed = em)
-             else:
-                 await ctx.send(num)
-            
-     @commands.command(aliases=['hex'])
-     async def hexu(self, ctx, number:int = None):
-         '''returns hexadecimal form of the specified number'''
-         if number is None:
-             await ctx.send('Enter a number :D')
-         else:
-             await ctx.send(hex(number)[2:])
-     
      def getColor(self, colorHex):
         return discord.Colour(int(f'0x{colorHex}', 16))
 
@@ -64,36 +42,23 @@ class Misc(commands.Cog):
         file.seek(0)
         em = discord.Embed(color=color, title=f'Showing Color: {str(color)}')
         em.set_image(url='attachment://color.png')
-        await ctx.send(file=discord.File(file, 'color.png'), embed=em)
+        await ctx.send(file=discord.File(file, 'color.png'), embed=em))
 
-     
-     @commands.command()
-     async def getchanid(self, ctx):
-         lel = ctx.channel.id
-         await ctx.send(lel)
-
-     @commands.command()
-     async def emoji(self, ctx, *,emoji: str):
-         """send emoji pic"""
-         emoji = emoji.split(":")
-         emoji_check = self.check_emojis(ctx.bot.emojis, emoji)
-         if emoji_check[0]:
-             emo = emoji_check[1]
-         else:
-             emoji = [e.lower() for e in emoji]
-             if emoji[0] == "<" or emoji[0] == "":
-                 emo = discord.utils.find(lambda e: emoji[1] in e.name.lower(), ctx.bot.emojis)
-             else:
-                 emo = discord.utils.find(lambda e: emoji[0] in e.name.lower(), ctx.bot.emojis)
-             if emo == None:
-                 em = discord.Embed(title="None", description="No emoji found.")
-                 em.color = await ctx.get_dominant_color(ctx.author.avatar_url)
-                 await ctx.send(embed=em)
-                 return
-         async with ctx.session.get(emo.url) as resp:
-             image = await resp.read()
-         with io.BytesIO(image) as file:
-             await ctx.send(file=discord.File(file, 'emote.png'))
+     @commands.command(name='emoji', aliases=['emote', 'e'])
+     async def _emoji(self, ctx, *, emoji : discord.Emoji):
+        '''displays an enlarged pic of an emoji
+        __**Parameters**__
+        • emoji - The name(case sensitive) or id of the emoji
+        '''
+        async with ctx.session.get(emoji.url) as resp:
+            image = await resp.read()
+        if emoji.animated:
+            with io.BytesIO(image) as file:
+                await ctx.send(file=discord.File(file, "emote.gif"))
+        else:
+            with io.BytesIO(image) as file:
+                await ctx.send(file = discord.File(file, "emote.png"))
+        await ctx.delete()
         
      @commands.command()
      async def picsu(self, ctx, *, member : discord.Member = None):
