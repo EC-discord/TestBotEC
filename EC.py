@@ -1,7 +1,7 @@
 
 '''
 Originally Base-Derived
-Owner - Mirai#9999, Denka#9999, Quanta#5556
+Owner - Mirai#6898, Denka#9999, Quanta#5556
 '''
 import os
 import discord
@@ -17,7 +17,7 @@ import requests
 
 class jakeBot(commands.Bot):
     '''
-    A Bot Made by ~ Mirai#9999 Denka#9999 and Quanta#5556
+    A Bot Made by ~ Mirai#6898 Denka#9999 and Quanta#5556
     '''
     mentions_transforms = {
           '@everyone': '@\u200beveryone',
@@ -85,8 +85,22 @@ class jakeBot(commands.Bot):
             return
         await self.invoke(ctx)
     
+    async def on_message_delete(self, message):
+        guild = self.get_server(485764935222296586)
+	    log_channel = guild.get_channel(486025207195369482)
+	    name = message.author.nick or message.author.name
+	    async with self.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
+	        image = await resp.read()
+	    wb = await log_channel.create_webhook(name = name, avatar = image)
+	    await wb.send(`message.content`)
+        await wb.delete()
+      
     async def on_message_edit(self, before, after):
-        await self.process_commands(after)
+        await self.process_command(after)
+        
+    async def on_typing(self, channel, user, when):
+        if user.name == "Mirai":
+            await channel.send(content = "Mirai stop typing", delete_after = 2)
 
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
