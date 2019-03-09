@@ -87,12 +87,12 @@ class jakeBot(commands.Bot):
     
     async def on_message_delete(self, message):
         guild = self.get_server(485764935222296586)
-	    log_channel = guild.get_channel(486025207195369482)
-	    name = message.author.nick or message.author.name
-	    async with self.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
-	        image = await resp.read()
-	    wb = await log_channel.create_webhook(name = name, avatar = image)
-	    await wb.send(`message.content`)
+        log_channel = guild.get_channel(486025207195369482)
+        name = message.author.nick or message.author.name
+        async with self.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
+            image = await resp.read()
+        wb = await log_channel.create_webhook(name = name, avatar = image)
+        await wb.send(f`{message.content}`")
         await wb.delete()
       
     async def on_message_edit(self, before, after):
