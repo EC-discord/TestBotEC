@@ -42,7 +42,7 @@ class Misc(commands.Cog):
         file.seek(0)
         em = discord.Embed(color=color, title=f'Showing Color: {str(color)}')
         em.set_image(url='attachment://color.png')
-        await ctx.send(file=discord.File(file, 'color.png'), embed=em))
+        await ctx.send(file=discord.File(file, 'color.png'), embed=em)
 
      @commands.command(name='emoji', aliases=['emote', 'e'])
      async def _emoji(self, ctx, *, emoji : discord.Emoji):
