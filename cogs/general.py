@@ -1,4 +1,3 @@
-import os
 import discord
 import json
 import random
@@ -40,7 +39,7 @@ class general(commands.Cog):
     async def getems(self, ctx, *, guild = None):
          if guild:
            guild = discord.utils.get(self.bot.guilds, name = guild)
-	     else:
+	 else:
            guild = ctx.guild
          liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
          listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
