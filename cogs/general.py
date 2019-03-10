@@ -37,7 +37,8 @@ class general(commands.Cog):
 	        await ctx.send(embed = em)
      
     @commands.command()
-    async def getems(self, ctx):
+    async def getems(self, ctx, *, guild):
+	 guild = await discord.utils.get(self.bot.guilds, name = guild) or ctx.guild
          liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
          listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
          notanim = " ".join(liststatic)
@@ -46,7 +47,6 @@ class general(commands.Cog):
          await ctx.send(f"{notanim}")
          await ctx.send(f"**Animated emotes:**")
          await ctx.send(f"{anim}")
-
 
     @commands.command()
     async def getallemojis(self, ctx):
