@@ -37,40 +37,18 @@ class general(commands.Cog):
      
     @commands.command()
     async def getems(self, ctx, *, guild = None):
-         if guild:
-           guild = discord.utils.get(self.bot.guilds, name = guild)
-	 else:
-           guild = ctx.guild
-         liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
-         listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
-         notanim = " ".join(liststatic)
-         anim = " ".join(listanimated)
-         await ctx.send(f"**Static emotes:**")
-         await ctx.send(f"{notanim}")
-         await ctx.send(f"**Animated emotes:**")
-         await ctx.send(f"{anim}")
-
-    @commands.command()
-    async def getallemojis(self, ctx):
-         """gets all emojis from every server the bot is in"""
-         paginator = Paginator()
-         for server in self.bot.guilds:
-             paginator.addLine(f'{server.name}:')
-             all_emoji_names_list = [f"{e}" for e in server.emojis]
-             all_emoji_names = ' '.join(all_emoji_names_list)
-             line_list = []
-             while len(all_emoji_names) > 2000:
-                 space_index = all_emoji_names[1500:].find(' ') + 1500
-                 line_list.append(all_emoji_names[:space_index])
-                 all_emoji_names = all_emoji_names[space_index:]
-             else:
-                 line_list.append(all_emoji_names)
-
-             for line in line_list:
-                 paginator.addLine(line)
-         for page in paginator.pages:
-             await ctx.send(page)
-             await asyncio.sleep(1)
+        if guild:
+          guild = discord.utils.get(self.bot.guilds, name = guild)
+        else:
+          guild = ctx.guild
+        liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
+        listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
+        notanim = " ".join(liststatic)
+        anim = " ".join(listanimated)
+        await ctx.send(f"**Static emotes:**")
+        await ctx.send(f"{notanim}")
+        await ctx.send(f"**Animated emotes:**")
+        await ctx.send(f"{anim}")
 
 def setup(bot):
 	bot.add_cog(general(bot))
