@@ -37,9 +37,7 @@ class general(commands.Cog):
      
     @commands.command()
     async def getems(self, ctx, *, guild = None):
-        if int(guild):
-          guild = discord.utils.get(self.bot.guilds, id = guild)
-        elif guild is not None:
+        if guild is not None:
           guild = discord.utils.get(self.bot.guilds, name = guild)
         elif guild is None:
           guild = ctx.guild
