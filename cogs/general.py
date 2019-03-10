@@ -38,7 +38,10 @@ class general(commands.Cog):
      
     @commands.command()
     async def getems(self, ctx, *, guild):
-	 guild = await discord.utils.get(self.bot.guilds, name = guild) or ctx.guild
+	 if guild:
+           guild = discord.utils.get(self.bot.guilds, name = guild)
+	 else:
+           guild = ctx.guild
          liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
          listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
          notanim = " ".join(liststatic)
