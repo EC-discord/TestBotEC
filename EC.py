@@ -96,7 +96,7 @@ class jakeBot(commands.Bot):
         await wb.delete()
       
     async def on_message_edit(self, before, after):
-        await self.process_command(after)
+        await self.process_commands(after)
 
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
