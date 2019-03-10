@@ -43,8 +43,8 @@ class general(commands.Cog):
           guild = discord.utils.get(self.bot.guilds, name = guild)
         elif guild is None:
           guild = ctx.guild
-        liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
-        listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
+        liststatic = [f"{e}" for e in guild.emojis if not e.animated]
+        listanimated = [f"{e}" for e in guild.emojis if e.animated]
         notanim = " ".join(liststatic)
         anim = " ".join(listanimated)
         await ctx.send(f"**Static emotes:**")
