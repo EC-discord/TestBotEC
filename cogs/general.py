@@ -41,7 +41,7 @@ class general(commands.Cog):
           guild = discord.utils.get(self.bot.guilds, id = guild)
         elif guild is not None:
           guild = discord.utils.get(self.bot.guilds, name = guild)
-        else:
+        elif guild is None:
           guild = ctx.guild
         liststatic = [f"{e}" for e in ctx.guild.emojis if not e.animated]
         listanimated = [f"{e}" for e in ctx.guild.emojis if e.animated]
