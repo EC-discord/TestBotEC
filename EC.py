@@ -84,31 +84,9 @@ class jakeBot(commands.Bot):
         if ctx.command is None:
             return
         await self.invoke(ctx)
-    
-    async def on_message_delete(self, message):
-        guild = self.get_server(485764935222296586)
-        log_channel = guild.get_channel(486025207195369482)
-        name = message.author.nick or message.author.name
-        if (message.guild.id == 485764935222296586) and not message.author.bot:
-          async with self.session.get(message.author.avatar_url_as(static_format = "png")) as resp:
-            image = await resp.read()
-          wb = await log_channel.create_webhook(name = name, avatar = image)
-          await wb.send(f"`{message.content}`")
-          await wb.delete()
-          await asyncio.sleep(1)
       
     async def on_message_edit(self, before, after):
         await self.process_commands(after)
-        guild = self.get_server(485764935222296586)
-        log_channel = guild.get_channel(486025207195369482)
-        name = after.author.nick or after.author.name
-        if (after.guild.id == 485764935222296586) and not after.author.bot:
-          async with self.session.get(after.author.avatar_url_as(static_format = "png")) as resp:
-            image = await resp.read()
-          wb = await log_channel.create_webhook(name = name, avatar = image)
-          await wb.send(f"**Message edited**\n**Before:** `{before.content}`\n**After:** `{after.content}`")
-          await wb.delete()
-          await asyncio.sleep(1)
         
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
