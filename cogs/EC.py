@@ -5,21 +5,6 @@ from discord.ext import commands
 class EC(commands.Cog):
      def __init__(self, bot):
           self.bot = bot
-
-     @commands.command()
-     async def shrug(self, ctx):
-         """¯\\_(ツ)_/¯"""
-         await ctx.send("¯\\\_(ツ)\_/¯")
-
-     @commands.command()
-     async def tflip(self, ctx):
-         """(╯°□°）╯︵ ┻━┻"""
-         await ctx.send('(╯°□°）╯︵ ┻━┻')
-
-     @commands.command()
-     async def lenny(self, ctx):
-         """( ͡° ͜ʖ ͡°)"""
-         await ctx.send("( ͡° ͜ʖ ͡°)")
      
      @commands.command()
      async def kflip(self, ctx):
