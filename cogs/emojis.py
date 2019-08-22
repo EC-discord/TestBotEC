@@ -26,7 +26,7 @@ class emojis(commands.Cog):
         created_emoji = await ctx.guild.create_custom_emoji(name = emoji_name, image = image, roles = [r for r in roles if roles is not None])
         await ctx.send(f"Emoji {created_emoji} created!")
         
-    @commands.command()
+    @commands.command(aliases = ["ge"])
     async def getemoji(self, ctx, *, emoji : discord.Emoji):
         await ctx.send(emoji)
         await ctx.message.delete()
