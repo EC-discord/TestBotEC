@@ -32,11 +32,11 @@ class emojis(commands.Cog):
     @commands.command(aliases = ["ge"])
     async def getemoji(self, ctx, *, emoji : discord.Emoji):
         if ctx.author.guild_permissions.manage_webhooks:
-            async with ctx.session.get(str(ctx.author.avatar_url)) as resp:
-                image = await resp.read()
+            #async with ctx.session.get(str(ctx.author.avatar_url)) as resp:
+            #    image = await resp.read()
             webhook = Webhook.partial(615554296146034744, 'y8hnnPUXHzyufUGP9xBRan8kzCAX9BMEp-DKRCPlxggSZBPWARk4azERSoRa7qpKYPmC', adapter=RequestsWebhookAdapter())
-            with io.BytesIO(image) as file:
-                webhook.send(emoji, username=ctx.author.nick or ctx.author.name, avatar = file)
+            #with io.BytesIO(image) as file:
+            webhook.send(emoji, username=ctx.author.nick or ctx.author.name, avatar_url = str(ctx.author.avatar_url))
         else:
             await ctx.send(emoji)
         await ctx.message.delete()
