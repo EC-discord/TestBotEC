@@ -4,6 +4,7 @@ from discord.ext import commands
 from aiohttp import ClientSession
 from discord import Webhook, RequestsWebhookAdapter
 import requests
+import io
 
 class emojis(commands.Cog):
     def __init__(self, bot):
