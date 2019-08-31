@@ -29,6 +29,25 @@ class Utility(commands.Cog):
         self._rtfm_cache = None
         self._last_google = None
         self._last_result = None
+        
+    @commands.command()
+    async def banner(self, ctx, *, guild = None):
+        """gets a guild's banner image
+        __**Parameters**__
+        • guild - the name or id of the guild
+        """
+        if guild is None:
+            guild = ctx.guild
+        elif type(guild) == int:
+            guild = discord.utils.get(self.bot.guilds, id = guild)
+        elif type(guild) == str:
+            guild = discord.utils.get(self.bot.guilds, name = guild)
+        banner = guild.banner_url_as(format = "png")
+        #async with ctx.session.get(str(banner)) as resp:
+        #    image = await resp.read()
+        #with io.BytesIO(image) as file:
+        #    await ctx.send(file = discord.File(file, "banner.png"))
+        await ctx.send(banner)
 
     async def is_owner(ctx):
        return ctx.author.id == 453941160612986880
