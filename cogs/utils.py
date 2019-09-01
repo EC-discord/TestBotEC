@@ -43,11 +43,10 @@ class Utility(commands.Cog):
         elif type(guild) == str:
             guild = discord.utils.get(self.bot.guilds, name = guild)
         banner = guild.banner_url_as(format = "png")
-        #async with ctx.session.get(str(banner)) as resp:
-        #    image = await resp.read()
-        #with io.BytesIO(image) as file:
-        #    await ctx.send(file = discord.File(file, "banner.png"))
-        await ctx.send(banner)
+        async with ctx.session.get(str(banner)) as resp:
+            image = await resp.read()
+        with io.BytesIO(image) as file:
+            await ctx.send(file = discord.File(file, "banner.png"))
 
     async def is_owner(ctx):
        return ctx.author.id == 453941160612986880
@@ -157,12 +156,6 @@ class Utility(commands.Cog):
             await out.add_reaction('\u2705') #tick
         if err:
             await err.add_reaction('\u2049') #x
-
-
-    #async def edit_to_codeblock(self, ctx, body):
-        #msg = f'{ctx.prefix}eval\n```py\n{body}\n```'
-        #await ctx.message.edit(content=msg)
-
 
     def cleanup_code(self, content):
         """Automatically removes code blocks from the code."""
