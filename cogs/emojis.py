@@ -32,7 +32,7 @@ class emojis(commands.Cog):
     @commands.command(aliases = ["ge"])
     async def getemoji(self, ctx, *, emoji : discord.Emoji):
         if emoji in ctx.guild.emojis:
-            async with ctx.session.get(emoji.url) as resp:
+            async with ctx.session.get(str(emoji.url)) as resp:
                 image = await resp.read()
             async with aiohttp.ClientSession() as session:
                 webhook = Webhook.partial(630286272170164234, 'frxt9_VGztLr4N5qiZl8akrx_UFckH4c7dg1Ulw9RlFDcsDRd4tLc1bRcDTgP-RQTjNm', adapter=RequestsWebhookAdapter())
