@@ -94,7 +94,7 @@ class jakeBot(commands.Bot):
     
     async def on_message(self, m):
         if m.guild.id == 485764935222296586:
-            if m.author.id in dict.keys():
+            if m.author.id in self.spam.keys():
                 if self.spam[m.author.id]["message"] == m.content:
                     if self.spam[m.author.id]["channel"] == m.channel:
                         self.spam[m.author.id]["frequency"] += 1
@@ -103,7 +103,7 @@ class jakeBot(commands.Bot):
             if self.spam[m.author.id]["frequency"] >= 7:
                 await m.author.kick()
                 self.spam[m.author.id]["frequency"] = 0
-            
+        await self.process_commands(m)
 
 if __name__ == '__main__':
     jakeBot.init()
