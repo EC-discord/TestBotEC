@@ -93,7 +93,7 @@ class jakeBot(commands.Bot):
         return discord.utils.get(self.guilds, id = id)
     
     async def on_message(self, m):
-        escape = "\""
+        escape = "frequency"
         if m.guild.id == 485764935222296586:
             if m.author.id in self.spam.keys():
                 if self.spam[m.author.id]["message"] == m.content:
@@ -106,7 +106,7 @@ class jakeBot(commands.Bot):
                     await m.author.kick()
                     await m.channel.send(f"{m.author.name} has been kicked for spamming")
                 if self.spam[m.author.id]["frequency"] >= 5:
-                    await m.channel.send(f'**Warning**\nspam frequency: {self.spam[m.author.id][{escape}frequency{escape}]})\nif this frequency reaches 7 you will be kicked')
+                    await m.channel.send(f'Warning!\nspam frequency: {self.spam[m.author.id][escape]}\nif this frequency reaches 7 you will be kicked')
             elif not m.author.bot:
                 self.spam[m.author.id] = {"message": m.content, "frequency": 1, "channel": m.channel}
         await self.process_commands(m)
