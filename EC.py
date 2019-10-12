@@ -95,11 +95,11 @@ class jakeBot(commands.Bot):
     async def on_message(self, m):
         if m.guild.id == 485764935222296586:
             if m.author.id in self.spam.keys():
-                if m.content != self.spam[m.author.id]["message"]:
-                    self.spam[m.author.id]["frequency"] = 1
                 if self.spam[m.author.id]["message"] == m.content:
                     if self.spam[m.author.id]["channel"] == m.channel:
                         self.spam[m.author.id]["frequency"] += 1
+                if m.content != self.spam[m.author.id]["message"]:
+                    self.spam[m.author.id]["frequency"] = 1
                 if self.spam[m.author.id]["frequency"] == 5 and (self.spam[m.author.id]["warned"] == False):
                     await m.channel.send("""**Warning**\nyou're spamming the same message over and over(**frequency: 5**), if this frequency reaches **7** you will be kicked""")
                     self.spam[m.author.id]["warned"] = True
