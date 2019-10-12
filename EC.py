@@ -91,27 +91,6 @@ class jakeBot(commands.Bot):
         
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
-    
-    async def on_message(self, m):
-        escape = "frequency"
-        if m.guild.id == 485764935222296586:
-            if m.author.id in self.spam.keys():
-              if m.channel.id in self.spam[m.author.id].keys():
-                if self.spam[m.author.id][m.channel.id]["id"] == m.channel.id:
-                    if self.spam[m.author.id][m.channel.id]["message"] == m.content:
-                        self.spam[m.author.id][m.channel.id]["frequency"] += 1
-                    if m.content != self.spam[m.author.id][m.channel.id]["message"]:
-                        self.spam[m.author.id][m.channel.id]["frequency"] = 1
-                        self.spam[m.author.id][m.channel.id]["message"] = m.content
-                if self.spam[m.author.id][m.channel.id]["frequency"] >= 7:
-                    self.spam[m.author.id][m.channel.id]["frequency"] = 0
-                    await m.author.kick()
-                    await m.channel.send(f"{m.author.name} has been kicked for spamming")
-                if self.spam[m.author.id][m.channel.id]["frequency"] >= 5:
-                    await m.channel.send(f'Warning!\nspam frequency: {self.spam[m.author.id][m.channel.id][escape]}\nif this frequency reaches 7 you will be kicked')
-            elif not m.author.bot:
-                self.spam[m.author.id] = {m.channel.id: {"id": m.channel.id, "message": m.content, "frequency": 1}}
-        await self.process_commands(m)
 
 if __name__ == '__main__':
     jakeBot.init()
