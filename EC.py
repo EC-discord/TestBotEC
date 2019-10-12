@@ -93,8 +93,7 @@ class jakeBot(commands.Bot):
         return discord.utils.get(self.guilds, id = id)
     
     async def on_message(self, m):
-        server = discord.utils.get(bot.guilds, id = 485764935222296586)
-        if m.guild == server:
+        if m.guild.id == 485764935222296586:
             if m.author.id in dict.keys():
                 if self.spam[m.author.id]["message"] == m.content:
                     if self.spam[m.author.id]["channel"] == m.channel:
