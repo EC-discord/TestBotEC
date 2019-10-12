@@ -98,13 +98,14 @@ class jakeBot(commands.Bot):
                 if self.spam[m.author.id]["message"] == m.content:
                     if self.spam[m.author.id]["channel"] == m.channel:
                         self.spam[m.author.id]["frequency"] += 1
+                if self.spam[m.author.id]["frequency"] == 5:
+                    await m.channel.send("""**Warning**\nyou're spamming the same message over and over(**frequency: 5**), if this frequency reaches **7** you will be kicked""")
+                if self.spam[m.author.id]["frequency"] >= 7:
+                    await m.author.kick()
+                    await m.channel.send(f"{m.author.name} has been kicked for spamming")
+                    self.spam[m.author.id]["frequency"] = 0
             elif not m.author.bot:
                 self.spam[m.author.id] = {"message": m.content, "frequency": 1, "channel": m.channel}
-            if self.spam[m.author.id]["frequency"] == 5:
-                await m.channel.send("""**Warning**\nyou're spamming the same message over and over(**frequency: 5**), if this frequency reaches **7** you will be kicked""")
-            if self.spam[m.author.id]["frequency"] >= 7:
-                await m.author.kick()
-                self.spam[m.author.id]["frequency"] = 0
         await self.process_commands(m)
 
 if __name__ == '__main__':
