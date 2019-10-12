@@ -109,7 +109,7 @@ class jakeBot(commands.Bot):
                 if self.spam[m.author.id][m.channel.id]["frequency"] >= 5:
                     await m.channel.send(f'Warning!\nspam frequency: {self.spam[m.author.id][m.channel.id][escape]}\nif this frequency reaches 7 you will be kicked')
             elif not m.author.bot:
-                self.spam[m.author.id][m.channel.id] = {"message": m.content, "frequency": 1}
+                self.spam[m.author.id] = {m.channel.id: {"message": m.content, "frequency": 1}}
         await self.process_commands(m)
 
 if __name__ == '__main__':
