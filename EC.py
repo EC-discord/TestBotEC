@@ -105,9 +105,7 @@ class jakeBot(commands.Bot):
                     await m.author.kick()
                     await m.channel.send(f"{m.author.name} has been kicked for spamming")
                 if self.spam[m.author.id]["frequency"] >= 5:
-                    await m.channel.send("**Warning**"
-                    f"\nyou're spamming the same message over and over(**frequency: {self.spam[m.author.id]['frequency']}**)"
-                    "\nif this frequency reaches **7** you will be kicked")
+                    await m.channel.send("**Warning**\nyou\'re spamming the same message over and over" + f"(frequency: {self.spam[m.author.id]['frequency']})" + \"\nif this frequency reaches 7 you will be kicked")
             elif not m.author.bot:
                 self.spam[m.author.id] = {"message": m.content, "frequency": 1, "channel": m.channel}
         await self.process_commands(m)
