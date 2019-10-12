@@ -31,6 +31,7 @@ class jakeBot(commands.Bot):
         self._extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
         self.process = psutil.Process()
         self.load_extensions()
+        self.spam = {:}
    
     def load_extensions(self, cogs = None, path = 'cogs.'):
         '''Loading the Extentions ;)'''
@@ -75,8 +76,8 @@ class jakeBot(commands.Bot):
     async def on_ready(self):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
-        server = str(+len(self.guilds))
-        await self.change_presence(activity=discord.Game(name="jake help (' O '   ) O:"))
+        server = str(len(self.guilds))
+        await self.change_presence(activity=discord.Game(name="something"))
 
     async def process_commands(self, message):
         '''Utilize the CustomContext subclass'''
@@ -90,6 +91,20 @@ class jakeBot(commands.Bot):
         
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
+    
+    async def on_message(self, m):
+        server = discord.utils.get(bot.guilds, id = 485764935222296586)
+        if m.guild == server:
+            if m.author.id in dict.keys():
+                if self.spam[m.author.id]["message"] == m.content:
+                    if self.spam[m.author.id]["channel"] == m.channel:
+                        self.spam[m.author.id]["frequency"] += 1
+            else:
+                self.spam[m.author.id] = {"message": m.content, "frequency": 1, "channel": m.channel}
+            if self.spam[m.author.id]["frequency"] >= 7:
+                await m.author.kick()
+                self.spam[m.author.id]["frequency"] = 0
+            
 
 if __name__ == '__main__':
     jakeBot.init()
