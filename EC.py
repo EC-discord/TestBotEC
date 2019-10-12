@@ -96,7 +96,7 @@ class jakeBot(commands.Bot):
         escape = "frequency"
         if m.guild.id == 485764935222296586:
             if m.author.id in self.spam.keys():
-                if self.spam[m.author.id][m.channelid] == m.channel.id:
+                if self.spam[m.author.id][m.channel.id] == m.channel.id:
                     if self.spam[m.author.id][m.channel.id]["message"] == m.content:
                         self.spam[m.author.id][m.channel.id]["frequency"] += 1
                     if m.content != self.spam[m.author.id][m.channel.id]["message"]:
