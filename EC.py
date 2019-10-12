@@ -31,7 +31,7 @@ class jakeBot(commands.Bot):
         self._extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
         self.process = psutil.Process()
         self.load_extensions()
-        self.spam = {:}
+        self.spam = {}
    
     def load_extensions(self, cogs = None, path = 'cogs.'):
         '''Loading the Extentions ;)'''
