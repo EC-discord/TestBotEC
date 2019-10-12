@@ -101,6 +101,7 @@ class jakeBot(commands.Bot):
                         self.spam[m.author.id]["frequency"] += 1
                     if m.content != self.spam[m.author.id]["message"]:
                         self.spam[m.author.id]["frequency"] = 1
+                        self.spam[m.author.id]["message"] = m.content
                 if self.spam[m.author.id]["frequency"] >= 7:
                     self.spam[m.author.id]["frequency"] = 0
                     await m.author.kick()
