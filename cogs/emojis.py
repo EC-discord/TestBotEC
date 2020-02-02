@@ -1,8 +1,6 @@
 import discord
 import asyncio
 from discord.ext import commands
-from aiohttp import ClientSession
-from discord import Webhook, RequestsWebhookAdapter
 import requests
 import aiohttp
 
@@ -31,12 +29,7 @@ class emojis(commands.Cog):
         
     @commands.command(aliases = ["ge"])
     async def getemoji(self, ctx, *, emoji : discord.Emoji):
-        if emoji in ctx.guild.emojis:
-            async with aiohttp.ClientSession() as session:
-                webhook = Webhook.partial(636570824916205611, 'rAEe2SiqxQCI_u0k7MWDYiKj-6mS1GZMB_yFEEP-7jF2SdTrUymuAPECMMc8nnJH1Nuc', adapter=RequestsWebhookAdapter())
-                webhook.send(emoji, username=ctx.message.author.nick or ctx.message.author.name, avatar_url=ctx.message.author.avatar_url_as(format="png"))
-        else:
-            await ctx.send(emoji)
+        await ctx.send(emoji)
         await ctx.message.delete()
     
     @commands.command()
