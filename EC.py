@@ -85,6 +85,12 @@ class jakeBot(commands.Bot):
         if ctx.command is None:
             return
         await self.invoke(ctx)
+        
+    async def on_message(self, m):
+        if m.embeds:
+          if "word" in m.embeds[0].description:
+            await m.delete()
+        await self.process_commands(m)
       
     async def on_message_edit(self, before, after):
         await self.process_commands(after)
