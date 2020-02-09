@@ -1,7 +1,7 @@
 
 '''
 Originally Base-Derived
-Owner - Mirai#6390
+Owner - Kaen#6390
 '''
 import os
 import discord
@@ -87,9 +87,15 @@ class jakeBot(commands.Bot):
         await self.invoke(ctx)
         
     async def on_message(self, m):
+        list = ["fuck", "fck", "hoe", "bitch", "bitxh", "cunt", "pussy", "dick", "asshole", "@sshole", "4sshole", 
+                "slut", "nigger", "faggot", "fucking", "fking", "faking", "fak", "whore", "fag", "nigga", "motherfucker",
+                "puta", "nygga", "cyka", "fucker", "fuk", "dickhead", "p0rn", "hentai", "h3ntai", "porn", "h3nta1", 
+                "f*ck", "blyat", "pp", "pron", "fuckin", "fukin", "fucking"]
         if m.embeds:
-          if "word" in m.embeds[0].description:
-            await m.delete()
+          l = m.embeds[0].description.split()
+          for word in l:
+            if word in list:    
+              await m.delete()
         await self.process_commands(m)
       
     async def on_message_edit(self, before, after):
