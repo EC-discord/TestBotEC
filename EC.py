@@ -16,9 +16,6 @@ import aiohttp
 import requests
 
 class jakeBot(commands.Bot):
-    '''
-    A Bot Made by ~ Mirai#6898 Denka#8264 and Quanta#5556
-    '''
     mentions_transforms = {
           '@everyone': '@\u200beveryone',
           '@here': '@\u200bhere'
@@ -92,7 +89,7 @@ class jakeBot(commands.Bot):
                 "puta", "nygga", "cyka", "fucker", "fuk", "dickhead", "p0rn", "hentai", "h3ntai", "porn", "h3nta1", 
                 "f*ck", "blyat", "pp", "pron", "fuckin", "fukin", "fucking"]
         if m.embeds:
-          l = m.embeds[0].description.split()
+          l = m.embeds[0].description.lower().split()
           for word in l:
             if word in list:    
               await m.delete()
