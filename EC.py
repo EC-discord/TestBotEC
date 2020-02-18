@@ -87,7 +87,7 @@ class jakeBot(commands.Bot):
         list = ["fuck", "fck", "hoe", "bitch", "bitxh", "cunt", "pussy", "dick", "asshole", "@sshole", "4sshole", 
                 "slut", "nigger", "faggot", "fucking", "fking", "faking", "fak", "whore", "fag", "nigga", "motherfucker",
                 "puta", "nygga", "cyka", "fucker", "fuk", "dickhead", "p0rn", "hentai", "h3ntai", "porn", "h3nta1", 
-                "f*ck", "blyat", "pp", "pron", "fuckin", "fukin", "fucking"]
+                "f*ck", "blyat", "pp", "pron", "fuckin", "fukin", "fucking", "dik"]
         if m.embeds:
           l = m.embeds[0].description.lower().split()
           for word in l:
