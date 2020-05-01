@@ -16,11 +16,6 @@ import aiohttp
 import requests
 
 class jakeBot(commands.Bot):
-    mentions_transforms = {
-          '@everyone': '@\u200beveryone',
-          '@here': '@\u200bhere'
-    }
-    mention_pattern = re.compile('|'.join(mentions_transforms.keys()))
 
     def __init__(self, **attrs):
         super().__init__(command_prefix = self.get_pre)
@@ -73,8 +68,7 @@ class jakeBot(commands.Bot):
     async def on_ready(self):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
-        server = str(len(self.guilds))
-        await self.change_presence(activity=discord.Game(name="something"))
+        await self.change_presence(activity=discord.Game(name="yes"))
         await self.edit(username = "Jake The Bot")
 
     async def process_commands(self, message):
