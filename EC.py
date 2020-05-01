@@ -69,7 +69,7 @@ class jakeBot(commands.Bot):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
         await self.change_presence(activity=discord.Game(name="yes"))
-        await self.user.edit(username = "Nyanko Big")
+        await self.edit(username = "Nyanko Big")
 
     async def process_commands(self, message):
         '''Utilize the CustomContext subclass'''
