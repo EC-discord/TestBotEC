@@ -15,19 +15,18 @@ import datetime
 import aiohttp
 import requests
 
-class jakeBot(commands.Bot):
+class NyankoBot(commands.Bot):
 
     def __init__(self, **attrs):
         super().__init__(command_prefix = self.get_pre)
         self.session = aiohttp.ClientSession(loop = self.loop)
-        self._extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
+        self.extentions = [x.replace('.py', '') for x in os.listdir('cogs') if x.endswith('.py')]
         self.process = psutil.Process()
         self.load_extensions()
-        self.spam = {}
    
     def load_extensions(self, cogs = None, path = 'cogs.'):
         '''Loading the Extentions ;)'''
-        for extension in cogs or self._extentions:
+        for extension in cogs or self.extentions:
             try:
                 self.load_extension('{0}{1}'.format(path, extension))
                 print('Loaded Extention: {}'.format(extension))
@@ -49,7 +48,7 @@ class jakeBot(commands.Bot):
     @classmethod
     def init(bot, token = None):
         '''RUN THE BOT'''
-        jakebot = bot()
+        nyankobot = bot()
         with open('data/config.json') as f:
             config = json.load(f)
             if config["TOKEN"] == "your_token_here":
@@ -58,7 +57,7 @@ class jakeBot(commands.Bot):
             else:
                 token = config["TOKEN"]
         try:
-            jakebot.run(token, bot = True, reconnect = True)
+            nyankobot.run(token, bot = True, reconnect = True)
         except Exception as e:
             print(e)
 
@@ -69,7 +68,6 @@ class jakeBot(commands.Bot):
         '''SET THE UPTIME'''
         self.uptime = datetime.datetime.utcnow()
         await self.change_presence(activity=discord.Game(name="yes"))
-        await self.edit(username = "Nyanko Big")
 
     async def process_commands(self, message):
         '''Utilize the CustomContext subclass'''
@@ -88,4 +86,4 @@ class jakeBot(commands.Bot):
         return discord.utils.get(self.guilds, id = id)
 
 if __name__ == '__main__':
-    jakeBot.init()
+    NyankoBot.init()
