@@ -82,10 +82,6 @@ class NyankoBot(commands.Bot):
     async def on_message_edit(self, before, after):
         await self.process_commands(after)
         
-    async def on_typing(self, channel, user, when):
-        if channel.id == 485764935222296588 and user.id == 355713736427700229:
-            await channel.guild.ban(user)
-        
     def get_server(self, id):
         return discord.utils.get(self.guilds, id = id)
 
